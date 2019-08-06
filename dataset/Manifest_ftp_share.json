@@ -7,8 +7,7 @@
 		},
 		"parameters": {
 			"Directory": {
-				"type": "string",
-				"defaultValue": "/DanMurphysTest/EdenDev"
+				"type": "string"
 			}
 		},
 		"annotations": [],

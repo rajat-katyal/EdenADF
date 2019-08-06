@@ -7,12 +7,10 @@
 		},
 		"parameters": {
 			"FolderPath": {
-				"type": "string",
-				"defaultValue": "/DanMurphysTest/EdenDev"
+				"type": "string"
 			},
 			"FileName": {
-				"type": "string",
-				"defaultValue": "*"
+				"type": "string"
 			}
 		},
 		"annotations": [],

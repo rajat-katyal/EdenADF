@@ -7,12 +7,10 @@
 		},
 		"parameters": {
 			"FolderPath": {
-				"type": "string",
-				"defaultValue": "/Eden-UatToBlob"
+				"type": "string"
 			},
 			"FileName": {
-				"type": "string",
-				"defaultValue": "*"
+				"type": "string"
 			}
 		},
 		"annotations": [],
