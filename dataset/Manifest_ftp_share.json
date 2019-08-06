@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"Directory": {
+			"FolderPath": {
 				"type": "string"
 			},
 			"FileName": {
@@ -16,9 +16,12 @@
 		"annotations": [],
 		"type": "FileShare",
 		"typeProperties": {
-			"fileName": "",
+			"fileName": {
+				"value": "@dataset().FileName",
+				"type": "Expression"
+			},
 			"folderPath": {
-				"value": "@dataset().Directory",
+				"value": "@dataset().FolderPath",
 				"type": "Expression"
 			}
 		}
