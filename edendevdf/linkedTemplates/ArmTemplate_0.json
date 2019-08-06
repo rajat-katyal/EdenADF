@@ -27,10 +27,6 @@
 			"type": "string",
 			"defaultValue": "ftp.danmurphys"
 		},
-		"Manifest_ftp_share_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "@dataset().FileName"
-		},
 		"Manifest_ftp_share_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
@@ -128,18 +124,11 @@
 				"parameters": {
 					"FolderPath": {
 						"type": "string"
-					},
-					"FileName": {
-						"type": "string"
 					}
 				},
 				"annotations": [],
 				"type": "FileShare",
 				"typeProperties": {
-					"fileName": {
-						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_fileName')]",
-						"type": "Expression"
-					},
 					"folderPath": {
 						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_folderPath')]",
 						"type": "Expression"
@@ -265,15 +254,17 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "Manifests_Ftp_Cellarmasters",
+								"referenceName": "Manifest_ftp_share",
 								"type": "DatasetReference",
 								"parameters": {
-									"FolderPath": "/DanMurphysTest/EdenDev",
-									"FileName": "*"
+									"FolderPath": {
+										"value": "@pipeline().parameters.SourceFtpFolder",
+										"type": "Expression"
+									}
 								}
 							},
 							"fieldList": [
-								"itemName"
+								"childItems"
 							]
 						}
 					},
@@ -324,7 +315,10 @@
 											"referenceName": "Manifests_Ftp_Cellarmasters",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "/DanMurphysTest/EdenDev",
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
 												"FileName": "@item().name"
 											}
 										}
@@ -363,7 +357,10 @@
 											"referenceName": "Manifests_Ftp_Cellarmasters",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "/DanMurphysTest/EdenDev",
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
 												"FileName": "@item().name"
 											}
 										},
@@ -374,9 +371,16 @@
 						}
 					}
 				],
+				"parameters": {
+					"SourceFtpFolder": {
+						"type": "string",
+						"defaultValue": "/DanMurphysTest/EdenDev"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Manifest_ftp_share')]",
 				"[concat(variables('factoryId'), '/datasets/Manifests_Ftp_Cellarmasters')]",
 				"[concat(variables('factoryId'), '/datasets/eden_blobstorage')]"
 			]

@@ -19,10 +19,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'edendevblobstorage'"
 		},
-		"Manifest_ftp_share_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "@dataset().FileName"
-		},
 		"Manifest_ftp_share_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
@@ -96,9 +92,6 @@
 					},
 					"dmCellarmastersFtp_properties_typeProperties_userName": {
 						"value": "[parameters('dmCellarmastersFtp_properties_typeProperties_userName')]"
-					},
-					"Manifest_ftp_share_properties_typeProperties_fileName": {
-						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_fileName')]"
 					},
 					"Manifest_ftp_share_properties_typeProperties_folderPath": {
 						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_folderPath')]"

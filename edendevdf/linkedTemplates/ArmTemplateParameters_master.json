@@ -14,9 +14,6 @@
 		"edendevblobstorage_connectionString": {
 			"value": ""
 		},
-		"Manifest_ftp_share_properties_typeProperties_fileName": {
-			"value": "@dataset().FileName"
-		},
 		"Manifest_ftp_share_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
