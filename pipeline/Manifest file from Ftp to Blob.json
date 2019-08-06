@@ -17,7 +17,11 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "Manifests_Ftp_Cellarmasters",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderPath": "/DanMurphysTest/EdenDev",
+							"FileName": "*"
+						}
 					},
 					"fieldList": [
 						"itemName"
