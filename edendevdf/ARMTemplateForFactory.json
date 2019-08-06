@@ -80,16 +80,14 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "Manifest_ftp_share",
+								"referenceName": "Manifests_Ftp_Cellarmasters",
 								"type": "DatasetReference",
 								"parameters": {
-									"Directory": "/DanMurphysTest/EdenDev",
+									"FolderPath": "/DanMurphysTest/EdenDev",
 									"FileName": "*"
 								}
 							},
-							"fieldList": [
-								"childItems"
-							]
+							"fieldList": []
 						}
 					},
 					{
@@ -201,7 +199,6 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Manifest_ftp_share')]",
 				"[concat(variables('factoryId'), '/datasets/Manifests_Ftp_Cellarmasters')]",
 				"[concat(variables('factoryId'), '/datasets/eden_blobstorage')]"
 			]
