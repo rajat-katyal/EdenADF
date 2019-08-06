@@ -128,6 +128,9 @@
 				"parameters": {
 					"Directory": {
 						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
 					}
 				},
 				"annotations": [],
@@ -240,7 +243,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Copy each file from Ftp to Blob')]",
+			"name": "[concat(parameters('factoryName'), '/Manifest file from Ftp to Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -262,7 +265,8 @@
 								"referenceName": "Manifest_ftp_share",
 								"type": "DatasetReference",
 								"parameters": {
-									"Directory": "/DanMurphysTest/EdenDev"
+									"Directory": "/DanMurphysTest/EdenDev",
+									"FileName": "*"
 								}
 							},
 							"fieldList": [
@@ -353,11 +357,11 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "Manifests_Ftp_Cellarmasters",
+											"referenceName": "Manifest_ftp_share",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "/DanMurphysTest/EdenDev",
-												"FileName": "@item().name"
+												"Directory": "/DanMurphysTest/EdenDev",
+												"FileName": "@item.name"
 											}
 										},
 										"enableLogging": false
