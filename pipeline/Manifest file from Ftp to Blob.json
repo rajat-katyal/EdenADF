@@ -22,7 +22,9 @@
 							"Directory": "/DanMurphysTest/EdenDev"
 						}
 					},
-					"fieldList": []
+					"fieldList": [
+						"childItems"
+					]
 				}
 			},
 			{
@@ -108,11 +110,11 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Manifests_Ftp_Cellarmasters",
+									"referenceName": "Manifest_ftp_share",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "/DanMurphysTest/EdenDev",
-										"FileName": "@item().name"
+										"Directory": "/DanMurphysTest/EdenDev",
+										"FileName": "@item.name"
 									}
 								},
 								"enableLogging": false
