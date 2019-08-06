@@ -16,11 +16,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Manifests_Ftp_Cellarmasters",
+						"referenceName": "Manifest_ftp_share",
 						"type": "DatasetReference",
 						"parameters": {
-							"FolderPath": "/DanMurphysTest/EdenDev",
-							"FileName": "*"
+							"FolderPath": "/DanMurphysTest/EdenDev"
 						}
 					},
 					"fieldList": [
