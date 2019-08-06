@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "edendevdf"
+		},
+		"TasF_SFTP_password": {
+			"value": ""
+		},
+		"dmCellarmastersFtp_password": {
+			"value": ""
+		},
+		"edendevblobstorage_connectionString": {
+			"value": ""
+		},
+		"Manifest_ftp_share_properties_typeProperties_fileName": {
+			"value": ""
+		},
+		"Manifest_ftp_share_properties_typeProperties_folderPath": {
+			"value": "@dataset().Directory"
+		},
+		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"TasF_SFTP_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"TasF_SFTP_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"eden_blobstorage_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"TasF_SFTP_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.TasFreight"
+		},
+		"dmCellarmastersFtp_properties_typeProperties_userName": {
+			"value": "ftp.danmurphys"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

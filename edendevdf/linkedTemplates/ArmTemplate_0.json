@@ -1,0 +1,388 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "edendevdf"
+		},
+		"TasF_SFTP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TasF_SFTP'"
+		},
+		"dmCellarmastersFtp_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'dmCellarmastersFtp'"
+		},
+		"edendevblobstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'edendevblobstorage'"
+		},
+		"TasF_SFTP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "SFTP.EDEN.UAT.TasFreight"
+		},
+		"dmCellarmastersFtp_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "ftp.danmurphys"
+		},
+		"Manifest_ftp_share_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": ""
+		},
+		"Manifest_ftp_share_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().Directory"
+		},
+		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().FileName"
+		},
+		"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"TasF_SFTP_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().FileName"
+		},
+		"TasF_SFTP_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"eden_blobstorage_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/TasF_SFTP')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "Sftp",
+				"typeProperties": {
+					"host": "ftp.cellarmasters.com.au",
+					"port": 22,
+					"skipHostKeyValidation": true,
+					"authenticationType": "Basic",
+					"userName": "[parameters('TasF_SFTP_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('TasF_SFTP_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dmCellarmastersFtp')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FtpServer",
+				"typeProperties": {
+					"host": "ftp.cellarmasters.com.au",
+					"port": 21,
+					"enableSsl": false,
+					"enableServerCertificateValidation": false,
+					"authenticationType": "Basic",
+					"userName": "[parameters('dmCellarmastersFtp_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('dmCellarmastersFtp_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/edendevblobstorage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('edendevblobstorage_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Manifest_ftp_share')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dmCellarmastersFtp",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Directory": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"fileName": "[parameters('Manifest_ftp_share_properties_typeProperties_fileName')]",
+					"folderPath": {
+						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dmCellarmastersFtp')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Manifests_Ftp_Cellarmasters')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dmCellarmastersFtp",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"fileName": {
+						"value": "[parameters('Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName')]",
+						"type": "Expression"
+					},
+					"folderPath": {
+						"value": "[parameters('Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dmCellarmastersFtp')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TasF_SFTP')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "TasF_SFTP",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"fileName": {
+						"value": "[parameters('TasF_SFTP_properties_typeProperties_fileName')]",
+						"type": "Expression"
+					},
+					"folderPath": {
+						"value": "[parameters('TasF_SFTP_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/TasF_SFTP')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/eden_blobstorage')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "edendevblobstorage",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "AzureBlob",
+				"typeProperties": {
+					"folderPath": {
+						"value": "[parameters('eden_blobstorage_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/edendevblobstorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Copy each file from Ftp to Blob')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Ftp Metadata",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "Manifest_ftp_share",
+								"type": "DatasetReference",
+								"parameters": {
+									"Directory": "/DanMurphysTest/EdenDev"
+								}
+							},
+							"fieldList": [
+								"childItems"
+							]
+						}
+					},
+					{
+						"name": "ForEach",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get Ftp Metadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Ftp Metadata').output.childitems",
+								"type": "Expression"
+							},
+							"isSequential": false,
+							"batchCount": 10,
+							"activities": [
+								{
+									"name": "Copy File",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "FileSystemSource",
+											"recursive": false
+										},
+										"sink": {
+											"type": "BlobSink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "Manifests_Ftp_Cellarmasters",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": "/DanMurphysTest/EdenDev",
+												"FileName": "@item().name"
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "eden_blobstorage",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": "manifests"
+											}
+										}
+									]
+								},
+								{
+									"name": "Delete File",
+									"type": "Delete",
+									"dependsOn": [
+										{
+											"activity": "Copy File",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "Manifests_Ftp_Cellarmasters",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": "/DanMurphysTest/EdenDev",
+												"FileName": "@item().name"
+											}
+										},
+										"enableLogging": false
+									}
+								}
+							]
+						}
+					}
+				],
+				"parameters": {
+					"SourceFolder": {
+						"type": "string",
+						"defaultValue": "/DanMurphysTest/EdenUat"
+					},
+					"SourceFilename": {
+						"type": "string"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Manifest_ftp_share')]",
+				"[concat(variables('factoryId'), '/datasets/Manifests_Ftp_Cellarmasters')]",
+				"[concat(variables('factoryId'), '/datasets/eden_blobstorage')]"
+			]
+		}
+	]
+}

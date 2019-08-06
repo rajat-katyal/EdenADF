@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "edendevdf"
+		},
+		"TasF_SFTP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TasF_SFTP'"
+		},
+		"dmCellarmastersFtp_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'dmCellarmastersFtp'"
+		},
+		"edendevblobstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'edendevblobstorage'"
+		},
+		"Manifest_ftp_share_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": ""
+		},
+		"Manifest_ftp_share_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().Directory"
+		},
+		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().FileName"
+		},
+		"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"TasF_SFTP_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().FileName"
+		},
+		"TasF_SFTP_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"eden_blobstorage_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"TasF_SFTP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "SFTP.EDEN.UAT.TasFreight"
+		},
+		"dmCellarmastersFtp_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "ftp.danmurphys"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas Token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"TasF_SFTP_password": {
+						"value": "[parameters('TasF_SFTP_password')]"
+					},
+					"dmCellarmastersFtp_password": {
+						"value": "[parameters('dmCellarmastersFtp_password')]"
+					},
+					"edendevblobstorage_connectionString": {
+						"value": "[parameters('edendevblobstorage_connectionString')]"
+					},
+					"TasF_SFTP_properties_typeProperties_userName": {
+						"value": "[parameters('TasF_SFTP_properties_typeProperties_userName')]"
+					},
+					"dmCellarmastersFtp_properties_typeProperties_userName": {
+						"value": "[parameters('dmCellarmastersFtp_properties_typeProperties_userName')]"
+					},
+					"Manifest_ftp_share_properties_typeProperties_fileName": {
+						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_fileName')]"
+					},
+					"Manifest_ftp_share_properties_typeProperties_folderPath": {
+						"value": "[parameters('Manifest_ftp_share_properties_typeProperties_folderPath')]"
+					},
+					"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
+						"value": "[parameters('Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName')]"
+					},
+					"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+						"value": "[parameters('Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath')]"
+					},
+					"TasF_SFTP_properties_typeProperties_fileName": {
+						"value": "[parameters('TasF_SFTP_properties_typeProperties_fileName')]"
+					},
+					"TasF_SFTP_properties_typeProperties_folderPath": {
+						"value": "[parameters('TasF_SFTP_properties_typeProperties_folderPath')]"
+					},
+					"eden_blobstorage_properties_typeProperties_folderPath": {
+						"value": "[parameters('eden_blobstorage_properties_typeProperties_folderPath')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
