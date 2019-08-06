@@ -175,11 +175,11 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "Manifest_ftp_share",
+											"referenceName": "Manifests_Ftp_Cellarmasters",
 											"type": "DatasetReference",
 											"parameters": {
-												"Directory": "/DanMurphysTest/EdenDev",
-												"FileName": "@item.name"
+												"FolderPath": "/DanMurphysTest/EdenDev",
+												"FileName": "@item().name"
 											}
 										},
 										"enableLogging": false
