@@ -128,7 +128,7 @@
 		"parameters": {
 			"SourceFolder": {
 				"type": "string",
-				"defaultValue": "/DanMurphysTest/EdenUat"
+				"defaultValue": "/DanMurphysTest/EdenDev"
 			},
 			"SourceFilename": {
 				"type": "string"
