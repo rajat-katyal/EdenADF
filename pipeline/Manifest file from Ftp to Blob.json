@@ -1,5 +1,5 @@
 {
-	"name": "Copy each file from Ftp to Blob",
+	"name": "Manifest file from Ftp to Blob",
 	"properties": {
 		"activities": [
 			{
