@@ -19,11 +19,14 @@
 						"referenceName": "Manifest_ftp_share",
 						"type": "DatasetReference",
 						"parameters": {
-							"FolderPath": "/DanMurphysTest/EdenDev"
+							"FolderPath": {
+								"value": "@pipeline().parameters.SourceFtpFolder",
+								"type": "Expression"
+							}
 						}
 					},
 					"fieldList": [
-						"itemName"
+						"childItems"
 					]
 				}
 			},
@@ -74,7 +77,10 @@
 									"referenceName": "Manifests_Ftp_Cellarmasters",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "/DanMurphysTest/EdenDev",
+										"FolderPath": {
+											"value": "@pipeline().parameters.SourceFtpFolder",
+											"type": "Expression"
+										},
 										"FileName": "@item().name"
 									}
 								}
@@ -113,7 +119,10 @@
 									"referenceName": "Manifests_Ftp_Cellarmasters",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "/DanMurphysTest/EdenDev",
+										"FolderPath": {
+											"value": "@pipeline().parameters.SourceFtpFolder",
+											"type": "Expression"
+										},
 										"FileName": "@item().name"
 									}
 								},
@@ -124,6 +133,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"SourceFtpFolder": {
+				"type": "string",
+				"defaultValue": "/DanMurphysTest/EdenDev"
+			}
+		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
