@@ -15,10 +15,10 @@
 			"value": ""
 		},
 		"Manifest_ftp_share_properties_typeProperties_fileName": {
-			"value": ""
+			"value": "@dataset().FileName"
 		},
 		"Manifest_ftp_share_properties_typeProperties_folderPath": {
-			"value": "@dataset().Directory"
+			"value": "@dataset().FolderPath"
 		},
 		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"

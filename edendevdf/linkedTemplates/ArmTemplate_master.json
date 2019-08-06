@@ -21,11 +21,11 @@
 		},
 		"Manifest_ftp_share_properties_typeProperties_fileName": {
 			"type": "string",
-			"defaultValue": ""
+			"defaultValue": "@dataset().FileName"
 		},
 		"Manifest_ftp_share_properties_typeProperties_folderPath": {
 			"type": "string",
-			"defaultValue": "@dataset().Directory"
+			"defaultValue": "@dataset().FolderPath"
 		},
 		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
 			"type": "string",
