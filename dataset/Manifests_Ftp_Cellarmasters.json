@@ -1,0 +1,32 @@
+{
+	"name": "Manifests_Ftp_Cellarmasters",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dmCellarmastersFtp",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderPath": {
+				"type": "string",
+				"defaultValue": "/DanMurphysTest/EdenDev"
+			},
+			"FileName": {
+				"type": "string",
+				"defaultValue": "*"
+			}
+		},
+		"annotations": [],
+		"type": "FileShare",
+		"typeProperties": {
+			"fileName": {
+				"value": "@dataset().FileName",
+				"type": "Expression"
+			},
+			"folderPath": {
+				"value": "@dataset().FolderPath",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
