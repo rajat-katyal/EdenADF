@@ -125,15 +125,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"SourceFolder": {
-				"type": "string",
-				"defaultValue": "/DanMurphysTest/EdenDev"
-			},
-			"SourceFilename": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
