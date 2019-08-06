@@ -19,7 +19,8 @@
 						"referenceName": "Manifest_ftp_share",
 						"type": "DatasetReference",
 						"parameters": {
-							"Directory": "/DanMurphysTest/EdenDev"
+							"Directory": "/DanMurphysTest/EdenDev",
+							"FileName": "*"
 						}
 					},
 					"fieldList": [
