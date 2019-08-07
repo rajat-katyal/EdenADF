@@ -39,11 +39,11 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Manifests_FTP_Cellarmasters_properties_typeProperties_fileName": {
+		"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath": {
+		"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -177,11 +177,11 @@
 					"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 						"value": "[parameters('Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath')]"
 					},
-					"Manifests_FTP_Cellarmasters_properties_typeProperties_fileName": {
-						"value": "[parameters('Manifests_FTP_Cellarmasters_properties_typeProperties_fileName')]"
+					"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
+						"value": "[parameters('Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName')]"
 					},
-					"Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath": {
-						"value": "[parameters('Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath')]"
+					"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
+						"value": "[parameters('Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]"
 					},
 					"Manifests_FTP_GetEachFile_properties_typeProperties_fileName": {
 						"value": "[parameters('Manifests_FTP_GetEachFile_properties_typeProperties_fileName')]"

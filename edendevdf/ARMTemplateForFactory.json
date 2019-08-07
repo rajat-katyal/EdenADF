@@ -39,11 +39,11 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Manifests_FTP_Cellarmasters_properties_typeProperties_fileName": {
+		"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath": {
+		"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -136,7 +136,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "Manifest_FTP_FileShare",
+								"referenceName": "Manifest_FTP_FileShare_GetAllChildren",
 								"type": "DatasetReference",
 								"parameters": {
 									"FolderPath": {
@@ -194,7 +194,7 @@
 									},
 									"inputs": [
 										{
-											"referenceName": "Manifests_FTP_Cellarmasters",
+											"referenceName": "Manifests_FTP_FileShare_GetEachFile",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -236,7 +236,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "Manifests_FTP_Cellarmasters",
+											"referenceName": "Manifests_FTP_FileShare_GetEachFile",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -262,8 +262,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Manifest_FTP_FileShare')]",
-				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_Cellarmasters')]",
+				"[concat(variables('factoryId'), '/datasets/Manifest_FTP_FileShare_GetAllChildren')]",
+				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_FileShare_GetEachFile')]",
 				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
 			]
 		},
@@ -322,7 +322,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifests_FTP_Cellarmasters')]",
+			"name": "[concat(parameters('factoryName'), '/Manifests_FTP_FileShare_GetEachFile')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -342,11 +342,11 @@
 				"type": "FileShare",
 				"typeProperties": {
 					"fileName": {
-						"value": "[parameters('Manifests_FTP_Cellarmasters_properties_typeProperties_fileName')]",
+						"value": "[parameters('Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName')]",
 						"type": "Expression"
 					},
 					"folderPath": {
-						"value": "[parameters('Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath')]",
+						"value": "[parameters('Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]",
 						"type": "Expression"
 					}
 				}

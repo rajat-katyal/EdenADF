@@ -29,10 +29,10 @@
 		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"Manifests_FTP_Cellarmasters_properties_typeProperties_fileName": {
+		"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
-		"Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath": {
+		"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"Manifests_FTP_GetEachFile_properties_typeProperties_fileName": {
