@@ -20,7 +20,10 @@
 		"DM_Cellarmasters_LinkedService_password": {
 			"value": ""
 		},
-		"Manifest_ftp_share_properties_typeProperties_folderPath": {
+		"CBD_LinkedService_password": {
+			"value": ""
+		},
+		"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"Manifest_ftp_share_get_all_children_properties_typeProperties_folderPath": {
@@ -38,25 +41,25 @@
 		"Manifests_Ftp_get_each_file_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"Nexday3PL_SFTP_properties_typeProperties_fileName": {
+		"Nexday3PL_SFTP_FileShare_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
-		"Nexday3PL_SFTP_properties_typeProperties_folderPath": {
+		"Nexday3PL_SFTP_FileShare_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"TasF_SFTP_properties_typeProperties_fileName": {
+		"TasF_SFTP_FileShare_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
-		"TasF_SFTP_properties_typeProperties_folderPath": {
+		"TasF_SFTP_FileShare_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"eden_blobstorage_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"XL_SFTP_properties_typeProperties_fileName": {
+		"XL_SFTP_FileShare_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
-		"XL_SFTP_properties_typeProperties_folderPath": {
+		"XL_SFTP_FileShare_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"XL_LinkedService_properties_typeProperties_userName": {
@@ -70,6 +73,15 @@
 		},
 		"DM_Cellarmasters_LinkedService_properties_typeProperties_userName": {
 			"value": "ftp.danmurphys"
+		},
+		"CBD_SFTP_FileShare_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"CBD_SFTP_FileShare_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"CBD_LinkedService_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
 		},
 		"containerUri": {
 			"value": ""
