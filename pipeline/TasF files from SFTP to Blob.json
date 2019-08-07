@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "TasF_SFTP_FileShare",
+						"referenceName": "TasF_SFTP_FileShare_GetEachFile",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderPath": {
@@ -75,7 +75,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "TasF_SFTP_FileShare",
+									"referenceName": "TasF_SFTP_FileShare_GetEachFile",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
@@ -117,7 +117,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "TasF_SFTP_FileShare",
+									"referenceName": "TasF_SFTP_FileShare_GetEachFile",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {

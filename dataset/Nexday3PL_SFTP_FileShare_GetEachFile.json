@@ -1,5 +1,5 @@
 {
-	"name": "Nexday3PL_SFTP_FileShare",
+	"name": "Nexday3PL_SFTP_FileShare_GetEachFile",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Nexday3PL_LinkedService",

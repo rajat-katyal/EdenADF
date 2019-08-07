@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Manifest_FTP_FileShare_GetAllChildren",
+						"referenceName": "Manifest_FTP_FileShare_GetList",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderPath": {

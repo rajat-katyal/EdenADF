@@ -1,5 +1,5 @@
 {
-	"name": "CBD_SFTP_FileShare",
+	"name": "CBD_SFTP_FileShare_GetEachFile",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CBD_LinkedService",

@@ -1,5 +1,5 @@
 {
-	"name": "TasF_SFTP_FileShare",
+	"name": "TasF_SFTP_FileShare_GetEachFile",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "TasF_LinkedService",

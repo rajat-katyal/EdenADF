@@ -1,5 +1,5 @@
 {
-	"name": "Manifest_FTP_FileShare_GetAllChildren",
+	"name": "Manifest_FTP_FileShare_GetList",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DM_Cellarmasters_LinkedService",
