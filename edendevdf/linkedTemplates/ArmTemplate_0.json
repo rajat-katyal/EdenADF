@@ -667,10 +667,12 @@
 										"value": "@pipeline().parameters.SourceFtpFolder",
 										"type": "Expression"
 									},
-									"FileName": "*"
+									"FileName": "\\"
 								}
 							},
-							"fieldList": []
+							"fieldList": [
+								"exists"
+							]
 						}
 					},
 					{
