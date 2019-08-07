@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "edendevdf"
 		},
-		"edendevblobstorage_connectionString": {
+		"CBD_LinkedService_password": {
 			"value": ""
 		},
-		"XL_LinkedService_password": {
+		"DM_Cellarmasters_LinkedService_password": {
 			"value": ""
 		},
 		"Nexday3PL_LinkedService_password": {
@@ -17,11 +17,23 @@
 		"TasF_LinkedService_password": {
 			"value": ""
 		},
-		"DM_Cellarmasters_LinkedService_password": {
+		"XL_LinkedService_password": {
 			"value": ""
 		},
-		"CBD_LinkedService_password": {
+		"edendevblobstorage_connectionString": {
 			"value": ""
+		},
+		"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"Eden_BlobStorage_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
 		},
 		"Manifest_FTP_FileShare_GetList_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
@@ -38,13 +50,16 @@
 		"Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
+		"Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
 		"TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
 		"TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"Eden_BlobStorage_properties_typeProperties_folderPath": {
+		"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"XL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
@@ -53,8 +68,14 @@
 		"XL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"XL_LinkedService_properties_typeProperties_userName": {
-			"value": "SFTP.EDEN.UAT.FTPxlexpress"
+		"XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"CBD_LinkedService_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
+		},
+		"DM_Cellarmasters_LinkedService_properties_typeProperties_userName": {
+			"value": "ftp.danmurphys"
 		},
 		"Nexday3PL_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.Nexday3PL"
@@ -62,29 +83,8 @@
 		"TasF_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.TasFreight"
 		},
-		"DM_Cellarmasters_LinkedService_properties_typeProperties_userName": {
-			"value": "ftp.danmurphys"
-		},
-		"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
-			"value": "@dataset().FileName"
-		},
-		"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
-			"value": "@dataset().FolderPath"
-		},
-		"CBD_LinkedService_properties_typeProperties_userName": {
-			"value": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
-		},
-		"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
-			"value": "@dataset().FolderPath"
-		},
-		"Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
-			"value": "@dataset().FolderPath"
-		},
-		"XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
-			"value": "@dataset().FolderPath"
-		},
-		"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
-			"value": "@dataset().FolderPath"
+		"XL_LinkedService_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.FTPxlexpress"
 		}
 	}
 }
