@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "edendevdf"
 		},
+		"Nexday3PL_SFTP_password": {
+			"value": ""
+		},
 		"TasF_SFTP_password": {
 			"value": ""
 		},
@@ -14,13 +17,40 @@
 		"edendevblobstorage_connectionString": {
 			"value": ""
 		},
+		"XL_LinkedService_password": {
+			"value": ""
+		},
+		"Nexday3PL_LinkedService_password": {
+			"value": ""
+		},
+		"TasF_LinkedService_password": {
+			"value": ""
+		},
+		"DM_Cellarmasters_LinkedService_password": {
+			"value": ""
+		},
 		"Manifest_ftp_share_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"Manifest_ftp_share_get_all_children_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
 		"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"Manifests_Ftp_get_each_file_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"Manifests_Ftp_get_each_file_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"Nexday3PL_SFTP_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"Nexday3PL_SFTP_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"TasF_SFTP_properties_typeProperties_fileName": {
@@ -32,10 +62,31 @@
 		"eden_blobstorage_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
+		"Nexday3PL_SFTP_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.Nexday3PL"
+		},
 		"TasF_SFTP_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.TasFreight"
 		},
 		"dmCellarmastersFtp_properties_typeProperties_userName": {
+			"value": "ftp.danmurphys"
+		},
+		"XL_SFTP_properties_typeProperties_fileName": {
+			"value": "@dataset().FileName"
+		},
+		"XL_SFTP_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"XL_LinkedService_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.FTPxlexpress"
+		},
+		"Nexday3PL_LinkedService_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.Nexday3PL"
+		},
+		"TasF_LinkedService_properties_typeProperties_userName": {
+			"value": "SFTP.EDEN.UAT.TasFreight"
+		},
+		"DM_Cellarmasters_LinkedService_properties_typeProperties_userName": {
 			"value": "ftp.danmurphys"
 		},
 		"containerUri": {
