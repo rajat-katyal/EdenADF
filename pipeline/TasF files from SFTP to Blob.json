@@ -1,5 +1,5 @@
 {
-	"name": "Manifest files from FTP to Blob",
+	"name": "TasF files from SFTP to Blob",
 	"properties": {
 		"activities": [
 			{
@@ -16,18 +16,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Manifest_FTP_FileShare_GetAllChildren",
+						"referenceName": "TasF_SFTP_FileShare",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderPath": {
 								"value": "@pipeline().parameters.SourceFtpFolder",
 								"type": "Expression"
-							}
+							},
+							"FileName": "*"
 						}
 					},
-					"fieldList": [
-						"childItems"
-					]
+					"fieldList": []
 				}
 			},
 			{
@@ -74,7 +73,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Manifests_FTP_FileShare_GetEachFile",
+									"referenceName": "TasF_SFTP_FileShare",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
@@ -90,7 +89,7 @@
 									"referenceName": "Eden_BlobStorage",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "manifests"
+										"FolderPath": "tasfreight-events"
 									}
 								}
 							]
@@ -116,7 +115,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Manifests_FTP_FileShare_GetEachFile",
+									"referenceName": "TasF_SFTP_FileShare",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
@@ -136,7 +135,7 @@
 		"parameters": {
 			"SourceFtpFolder": {
 				"type": "string",
-				"defaultValue": "/DanMurphysTest/EdenDev"
+				"defaultValue": "/Eden-DevToBlob"
 			}
 		},
 		"annotations": []
