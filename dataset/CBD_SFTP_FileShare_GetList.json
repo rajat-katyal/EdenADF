@@ -1,0 +1,23 @@
+{
+	"name": "CBD_SFTP_FileShare_GetList",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CBD_LinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderPath": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "FileShare",
+		"typeProperties": {
+			"folderPath": {
+				"value": "@dataset().FolderPath",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
