@@ -77,6 +77,15 @@
 		"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
+		"Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
+		"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"value": "@dataset().FolderPath"
+		},
 		"containerUri": {
 			"value": ""
 		},

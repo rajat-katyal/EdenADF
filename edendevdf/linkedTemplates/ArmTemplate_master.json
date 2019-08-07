@@ -103,6 +103,18 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
+		"Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -201,6 +213,15 @@
 					},
 					"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
 						"value": "[parameters('TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]"
+					},
+					"Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+						"value": "[parameters('Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]"
+					},
+					"XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+						"value": "[parameters('XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]"
+					},
+					"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+						"value": "[parameters('CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]"
 					}
 				}
 			},

@@ -102,6 +102,18 @@
 		"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
+		},
+		"Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
 		}
 	},
 	"variables": {
@@ -479,6 +491,87 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Nexday3PL_SFTP_FileShare_GetList')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Nexday3PL_LinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"folderPath": {
+						"value": "[parameters('Nexday3PL_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Nexday3PL_LinkedService')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/XL_SFTP_FileShare_GetList')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "XL_LinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"folderPath": {
+						"value": "[parameters('XL_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/XL_LinkedService')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CBD_SFTP_FileShare_GetList')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CBD_LinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"folderPath": {
+						"value": "[parameters('CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CBD_LinkedService')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Manifest files from FTP to Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -777,6 +870,157 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/TasF_SFTP_FileShare_GetList')]",
 				"[concat(variables('factoryId'), '/datasets/TasF_SFTP_FileShare_GetEachFile')]",
+				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/XL files from SFTP to Blob')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Ftp Metadata",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "XL_SFTP_FileShare_GetList",
+								"type": "DatasetReference",
+								"parameters": {
+									"FolderPath": {
+										"value": "@pipeline().parameters.SourceFtpFolder",
+										"type": "Expression"
+									}
+								}
+							},
+							"fieldList": [
+								"childItems"
+							]
+						}
+					},
+					{
+						"name": "ForEach",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get Ftp Metadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Ftp Metadata').output.childitems",
+								"type": "Expression"
+							},
+							"isSequential": false,
+							"batchCount": 10,
+							"activities": [
+								{
+									"name": "Copy File",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "FileSystemSource",
+											"recursive": false
+										},
+										"sink": {
+											"type": "BlobSink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "XL_SFTP_FileShare_GetEachFile",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "Eden_BlobStorage",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": "tasfreight-events"
+											}
+										}
+									]
+								},
+								{
+									"name": "Delete File",
+									"type": "Delete",
+									"dependsOn": [
+										{
+											"activity": "Copy File",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "XL_SFTP_FileShare_GetEachFile",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										},
+										"enableLogging": false
+									}
+								}
+							]
+						}
+					}
+				],
+				"parameters": {
+					"SourceFtpFolder": {
+						"type": "string",
+						"defaultValue": "/Eden-DevToBlob"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/XL_SFTP_FileShare_GetList')]",
+				"[concat(variables('factoryId'), '/datasets/XL_SFTP_FileShare_GetEachFile')]",
 				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
 			]
 		}
