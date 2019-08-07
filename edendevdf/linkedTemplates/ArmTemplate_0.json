@@ -967,7 +967,7 @@
 											"referenceName": "Eden_BlobStorage",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "tasfreight-events"
+												"FolderPath": "xl-events"
 											}
 										}
 									]
