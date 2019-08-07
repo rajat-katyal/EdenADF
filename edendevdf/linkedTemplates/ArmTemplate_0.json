@@ -55,23 +55,23 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Manifest_ftp_share_get_all_children_properties_typeProperties_folderPath": {
+		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
+		"Manifests_FTP_Cellarmasters_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+		"Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Manifests_Ftp_get_each_file_properties_typeProperties_fileName": {
+		"Manifests_FTP_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"Manifests_Ftp_get_each_file_properties_typeProperties_folderPath": {
+		"Manifests_FTP_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -91,7 +91,7 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"eden_blobstorage_properties_typeProperties_folderPath": {
+		"Eden_BlobStorage_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -263,7 +263,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifest_ftp_share_get_all_children')]",
+			"name": "[concat(parameters('factoryName'), '/Manifest_FTP_FileShare_GetAllChildren')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -280,7 +280,7 @@
 				"type": "FileShare",
 				"typeProperties": {
 					"folderPath": {
-						"value": "[parameters('Manifest_ftp_share_get_all_children_properties_typeProperties_folderPath')]",
+						"value": "[parameters('Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath')]",
 						"type": "Expression"
 					}
 				}
@@ -290,7 +290,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifests_Ftp_Cellarmasters')]",
+			"name": "[concat(parameters('factoryName'), '/Manifests_FTP_Cellarmasters')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -310,11 +310,11 @@
 				"type": "FileShare",
 				"typeProperties": {
 					"fileName": {
-						"value": "[parameters('Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName')]",
+						"value": "[parameters('Manifests_FTP_Cellarmasters_properties_typeProperties_fileName')]",
 						"type": "Expression"
 					},
 					"folderPath": {
-						"value": "[parameters('Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath')]",
+						"value": "[parameters('Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath')]",
 						"type": "Expression"
 					}
 				}
@@ -324,7 +324,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifests_Ftp_get_each_file')]",
+			"name": "[concat(parameters('factoryName'), '/Manifests_FTP_GetEachFile')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -344,11 +344,11 @@
 				"type": "FileShare",
 				"typeProperties": {
 					"fileName": {
-						"value": "[parameters('Manifests_Ftp_get_each_file_properties_typeProperties_fileName')]",
+						"value": "[parameters('Manifests_FTP_GetEachFile_properties_typeProperties_fileName')]",
 						"type": "Expression"
 					},
 					"folderPath": {
-						"value": "[parameters('Manifests_Ftp_get_each_file_properties_typeProperties_folderPath')]",
+						"value": "[parameters('Manifests_FTP_GetEachFile_properties_typeProperties_folderPath')]",
 						"type": "Expression"
 					}
 				}
@@ -426,7 +426,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/eden_blobstorage')]",
+			"name": "[concat(parameters('factoryName'), '/Eden_BlobStorage')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -443,7 +443,7 @@
 				"type": "AzureBlob",
 				"typeProperties": {
 					"folderPath": {
-						"value": "[parameters('eden_blobstorage_properties_typeProperties_folderPath')]",
+						"value": "[parameters('Eden_BlobStorage_properties_typeProperties_folderPath')]",
 						"type": "Expression"
 					}
 				}
@@ -598,7 +598,7 @@
 									},
 									"inputs": [
 										{
-											"referenceName": "Manifests_Ftp_Cellarmasters",
+											"referenceName": "Manifests_FTP_Cellarmasters",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -611,7 +611,7 @@
 									],
 									"outputs": [
 										{
-											"referenceName": "eden_blobstorage",
+											"referenceName": "Eden_BlobStorage",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": "manifests"
@@ -640,7 +640,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "Manifests_Ftp_Cellarmasters",
+											"referenceName": "Manifests_FTP_Cellarmasters",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -667,8 +667,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Manifest_FTP_FileShare')]",
-				"[concat(variables('factoryId'), '/datasets/Manifests_Ftp_Cellarmasters')]",
-				"[concat(variables('factoryId'), '/datasets/eden_blobstorage')]"
+				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_Cellarmasters')]",
+				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
 			]
 		}
 	]

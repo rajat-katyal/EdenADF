@@ -26,19 +26,19 @@
 		"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"Manifest_ftp_share_get_all_children_properties_typeProperties_folderPath": {
+		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"Manifests_Ftp_Cellarmasters_properties_typeProperties_fileName": {
+		"Manifests_FTP_Cellarmasters_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
-		"Manifests_Ftp_Cellarmasters_properties_typeProperties_folderPath": {
+		"Manifests_FTP_Cellarmasters_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"Manifests_Ftp_get_each_file_properties_typeProperties_fileName": {
+		"Manifests_FTP_GetEachFile_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"
 		},
-		"Manifests_Ftp_get_each_file_properties_typeProperties_folderPath": {
+		"Manifests_FTP_GetEachFile_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"Nexday3PL_SFTP_FileShare_properties_typeProperties_fileName": {
@@ -53,7 +53,7 @@
 		"TasF_SFTP_FileShare_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
-		"eden_blobstorage_properties_typeProperties_folderPath": {
+		"Eden_BlobStorage_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},
 		"XL_SFTP_FileShare_properties_typeProperties_fileName": {
