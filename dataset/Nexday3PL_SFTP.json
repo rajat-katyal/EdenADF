@@ -1,0 +1,30 @@
+{
+	"name": "Nexday3PL_SFTP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Nexday3PL_SFTP",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderPath": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "FileShare",
+		"typeProperties": {
+			"fileName": {
+				"value": "@dataset().FileName",
+				"type": "Expression"
+			},
+			"folderPath": {
+				"value": "@dataset().FolderPath",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

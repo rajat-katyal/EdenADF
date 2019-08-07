@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Manifest_ftp_share_get_all_children",
+						"referenceName": "Manifest_ftp_share",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderPath": {
@@ -74,7 +74,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Manifests_Ftp_get_each_file",
+									"referenceName": "Manifests_Ftp_Cellarmasters",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
@@ -116,7 +116,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Manifests_Ftp_get_each_file",
+									"referenceName": "Manifests_Ftp_Cellarmasters",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
