@@ -51,10 +51,6 @@
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
 		},
-		"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "@dataset().FolderPath"
-		},
 		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
@@ -234,33 +230,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Manifest_FTP_FileShare')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "DM_Cellarmasters_LinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"FolderPath": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "FileShare",
-				"typeProperties": {
-					"folderPath": {
-						"value": "[parameters('Manifest_FTP_FileShare_properties_typeProperties_folderPath')]",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/DM_Cellarmasters_LinkedService')]"
-			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Manifest_FTP_FileShare_GetAllChildren')]",

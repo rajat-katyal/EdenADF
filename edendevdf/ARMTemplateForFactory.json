@@ -31,10 +31,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CBD_LinkedService'"
 		},
-		"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "@dataset().FolderPath"
-		},
 		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
@@ -265,33 +261,6 @@
 				"[concat(variables('factoryId'), '/datasets/Manifest_FTP_FileShare_GetAllChildren')]",
 				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_FileShare_GetEachFile')]",
 				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Manifest_FTP_FileShare')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "DM_Cellarmasters_LinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"FolderPath": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "FileShare",
-				"typeProperties": {
-					"folderPath": {
-						"value": "[parameters('Manifest_FTP_FileShare_properties_typeProperties_folderPath')]",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/DM_Cellarmasters_LinkedService')]"
 			]
 		},
 		{

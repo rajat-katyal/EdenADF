@@ -23,9 +23,6 @@
 		"CBD_LinkedService_password": {
 			"value": ""
 		},
-		"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
-			"value": "@dataset().FolderPath"
-		},
 		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
 		},

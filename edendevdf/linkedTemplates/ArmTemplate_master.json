@@ -31,10 +31,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CBD_LinkedService'"
 		},
-		"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "@dataset().FolderPath"
-		},
 		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
@@ -170,9 +166,6 @@
 					},
 					"CBD_LinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('CBD_LinkedService_properties_typeProperties_userName')]"
-					},
-					"Manifest_FTP_FileShare_properties_typeProperties_folderPath": {
-						"value": "[parameters('Manifest_FTP_FileShare_properties_typeProperties_folderPath')]"
 					},
 					"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
 						"value": "[parameters('Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath')]"
