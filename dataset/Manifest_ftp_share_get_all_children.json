@@ -2,7 +2,7 @@
 	"name": "Manifest_ftp_share_get_all_children",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "dmCellarmastersFtp",
+			"referenceName": "DM_Cellarmasters_LinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

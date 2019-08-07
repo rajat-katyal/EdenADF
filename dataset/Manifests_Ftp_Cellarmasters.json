@@ -2,7 +2,7 @@
 	"name": "Manifests_Ftp_Cellarmasters",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "dmCellarmastersFtp",
+			"referenceName": "DM_Cellarmasters_LinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
