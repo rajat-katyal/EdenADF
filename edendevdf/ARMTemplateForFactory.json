@@ -113,7 +113,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifest file from Ftp to Blob')]",
+			"name": "[concat(parameters('factoryName'), '/Manifest files from FTP to Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -639,6 +639,155 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TasF files from SFTP to Blob')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Ftp Metadata",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "TasF_SFTP_FileShare",
+								"type": "DatasetReference",
+								"parameters": {
+									"FolderPath": {
+										"value": "@pipeline().parameters.SourceFtpFolder",
+										"type": "Expression"
+									},
+									"FileName": "*"
+								}
+							},
+							"fieldList": []
+						}
+					},
+					{
+						"name": "ForEach",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get Ftp Metadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Ftp Metadata').output.childitems",
+								"type": "Expression"
+							},
+							"isSequential": false,
+							"batchCount": 10,
+							"activities": [
+								{
+									"name": "Copy File",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "FileSystemSource",
+											"recursive": false
+										},
+										"sink": {
+											"type": "BlobSink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "TasF_SFTP_FileShare",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "Eden_BlobStorage",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": "tasfreight-events"
+											}
+										}
+									]
+								},
+								{
+									"name": "Delete File",
+									"type": "Delete",
+									"dependsOn": [
+										{
+											"activity": "Copy File",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "TasF_SFTP_FileShare",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										},
+										"enableLogging": false
+									}
+								}
+							]
+						}
+					}
+				],
+				"parameters": {
+					"SourceFtpFolder": {
+						"type": "string",
+						"defaultValue": "/Eden-DevToBlob"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/TasF_SFTP_FileShare')]",
+				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+			]
 		}
 	]
 }
