@@ -16,18 +16,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "TasF_SFTP_FileShare_GetEachFile",
+						"referenceName": "TasF_SFTP_FileShare_GetList",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderPath": {
 								"value": "@pipeline().parameters.SourceFtpFolder",
 								"type": "Expression"
-							},
-							"FileName": "\\"
+							}
 						}
 					},
 					"fieldList": [
-						"exists"
+						"childItems"
 					]
 				}
 			},
