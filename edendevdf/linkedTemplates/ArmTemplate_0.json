@@ -7,18 +7,6 @@
 			"metadata": "Data Factory Name",
 			"defaultValue": "edendevdf"
 		},
-		"Nexday3PL_SFTP_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Nexday3PL_SFTP'"
-		},
-		"TasF_SFTP_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'TasF_SFTP'"
-		},
-		"dmCellarmastersFtp_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'dmCellarmastersFtp'"
-		},
 		"edendevblobstorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'edendevblobstorage'"
@@ -38,18 +26,6 @@
 		"DM_Cellarmasters_LinkedService_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'DM_Cellarmasters_LinkedService'"
-		},
-		"Nexday3PL_SFTP_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "SFTP.EDEN.UAT.Nexday3PL"
-		},
-		"TasF_SFTP_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "SFTP.EDEN.UAT.TasFreight"
-		},
-		"dmCellarmastersFtp_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "ftp.danmurphys"
 		},
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
@@ -124,70 +100,6 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/Nexday3PL_SFTP')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "Sftp",
-				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
-					"port": 22,
-					"skipHostKeyValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('Nexday3PL_SFTP_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('Nexday3PL_SFTP_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TasF_SFTP')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "Sftp",
-				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
-					"port": 22,
-					"skipHostKeyValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('TasF_SFTP_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('TasF_SFTP_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/dmCellarmastersFtp')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "FtpServer",
-				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
-					"port": 21,
-					"enableSsl": false,
-					"enableServerCertificateValidation": false,
-					"authenticationType": "Basic",
-					"userName": "[parameters('dmCellarmastersFtp_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('dmCellarmastersFtp_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/edendevblobstorage')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",

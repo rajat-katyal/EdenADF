@@ -5,15 +5,6 @@
 		"factoryName": {
 			"value": "edendevdf"
 		},
-		"Nexday3PL_SFTP_password": {
-			"value": ""
-		},
-		"TasF_SFTP_password": {
-			"value": ""
-		},
-		"dmCellarmastersFtp_password": {
-			"value": ""
-		},
 		"edendevblobstorage_connectionString": {
 			"value": ""
 		},
@@ -61,15 +52,6 @@
 		},
 		"eden_blobstorage_properties_typeProperties_folderPath": {
 			"value": "@dataset().FolderPath"
-		},
-		"Nexday3PL_SFTP_properties_typeProperties_userName": {
-			"value": "SFTP.EDEN.UAT.Nexday3PL"
-		},
-		"TasF_SFTP_properties_typeProperties_userName": {
-			"value": "SFTP.EDEN.UAT.TasFreight"
-		},
-		"dmCellarmastersFtp_properties_typeProperties_userName": {
-			"value": "ftp.danmurphys"
 		},
 		"XL_SFTP_properties_typeProperties_fileName": {
 			"value": "@dataset().FileName"

@@ -7,18 +7,6 @@
 			"metadata": "Data Factory Name",
 			"defaultValue": "edendevdf"
 		},
-		"Nexday3PL_SFTP_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Nexday3PL_SFTP'"
-		},
-		"TasF_SFTP_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'TasF_SFTP'"
-		},
-		"dmCellarmastersFtp_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'dmCellarmastersFtp'"
-		},
 		"edendevblobstorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'edendevblobstorage'"
@@ -83,18 +71,6 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Nexday3PL_SFTP_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "SFTP.EDEN.UAT.Nexday3PL"
-		},
-		"TasF_SFTP_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "SFTP.EDEN.UAT.TasFreight"
-		},
-		"dmCellarmastersFtp_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "ftp.danmurphys"
-		},
 		"XL_SFTP_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
@@ -146,15 +122,6 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"Nexday3PL_SFTP_password": {
-						"value": "[parameters('Nexday3PL_SFTP_password')]"
-					},
-					"TasF_SFTP_password": {
-						"value": "[parameters('TasF_SFTP_password')]"
-					},
-					"dmCellarmastersFtp_password": {
-						"value": "[parameters('dmCellarmastersFtp_password')]"
-					},
 					"edendevblobstorage_connectionString": {
 						"value": "[parameters('edendevblobstorage_connectionString')]"
 					},
@@ -169,15 +136,6 @@
 					},
 					"DM_Cellarmasters_LinkedService_password": {
 						"value": "[parameters('DM_Cellarmasters_LinkedService_password')]"
-					},
-					"Nexday3PL_SFTP_properties_typeProperties_userName": {
-						"value": "[parameters('Nexday3PL_SFTP_properties_typeProperties_userName')]"
-					},
-					"TasF_SFTP_properties_typeProperties_userName": {
-						"value": "[parameters('TasF_SFTP_properties_typeProperties_userName')]"
-					},
-					"dmCellarmastersFtp_properties_typeProperties_userName": {
-						"value": "[parameters('dmCellarmastersFtp_properties_typeProperties_userName')]"
 					},
 					"XL_LinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('XL_LinkedService_properties_typeProperties_userName')]"
