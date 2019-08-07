@@ -31,7 +31,7 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CBD_LinkedService'"
 		},
-		"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
+		"Manifest_FTP_FileShare_GetList_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -43,27 +43,19 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Manifests_FTP_GetEachFile_properties_typeProperties_fileName": {
+		"Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"Manifests_FTP_GetEachFile_properties_typeProperties_folderPath": {
+		"Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Nexday3PL_SFTP_FileShare_properties_typeProperties_fileName": {
+		"TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"Nexday3PL_SFTP_FileShare_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "@dataset().FolderPath"
-		},
-		"TasF_SFTP_FileShare_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "@dataset().FileName"
-		},
-		"TasF_SFTP_FileShare_properties_typeProperties_folderPath": {
+		"TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -71,11 +63,11 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"XL_SFTP_FileShare_properties_typeProperties_fileName": {
+		"XL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"XL_SFTP_FileShare_properties_typeProperties_folderPath": {
+		"XL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -95,17 +87,21 @@
 			"type": "string",
 			"defaultValue": "ftp.danmurphys"
 		},
-		"CBD_SFTP_FileShare_properties_typeProperties_fileName": {
+		"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "@dataset().FileName"
 		},
-		"CBD_SFTP_FileShare_properties_typeProperties_folderPath": {
+		"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
 		"CBD_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
+		},
+		"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
 		},
 		"containerUri": {
 			"type": "string",
@@ -167,8 +163,8 @@
 					"CBD_LinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('CBD_LinkedService_properties_typeProperties_userName')]"
 					},
-					"Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath": {
-						"value": "[parameters('Manifest_FTP_FileShare_GetAllChildren_properties_typeProperties_folderPath')]"
+					"Manifest_FTP_FileShare_GetList_properties_typeProperties_folderPath": {
+						"value": "[parameters('Manifest_FTP_FileShare_GetList_properties_typeProperties_folderPath')]"
 					},
 					"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
 						"value": "[parameters('Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_fileName')]"
@@ -176,38 +172,35 @@
 					"Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
 						"value": "[parameters('Manifests_FTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]"
 					},
-					"Manifests_FTP_GetEachFile_properties_typeProperties_fileName": {
-						"value": "[parameters('Manifests_FTP_GetEachFile_properties_typeProperties_fileName')]"
+					"Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
+						"value": "[parameters('Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName')]"
 					},
-					"Manifests_FTP_GetEachFile_properties_typeProperties_folderPath": {
-						"value": "[parameters('Manifests_FTP_GetEachFile_properties_typeProperties_folderPath')]"
+					"Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
+						"value": "[parameters('Nexday3PL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]"
 					},
-					"Nexday3PL_SFTP_FileShare_properties_typeProperties_fileName": {
-						"value": "[parameters('Nexday3PL_SFTP_FileShare_properties_typeProperties_fileName')]"
+					"TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
+						"value": "[parameters('TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName')]"
 					},
-					"Nexday3PL_SFTP_FileShare_properties_typeProperties_folderPath": {
-						"value": "[parameters('Nexday3PL_SFTP_FileShare_properties_typeProperties_folderPath')]"
-					},
-					"TasF_SFTP_FileShare_properties_typeProperties_fileName": {
-						"value": "[parameters('TasF_SFTP_FileShare_properties_typeProperties_fileName')]"
-					},
-					"TasF_SFTP_FileShare_properties_typeProperties_folderPath": {
-						"value": "[parameters('TasF_SFTP_FileShare_properties_typeProperties_folderPath')]"
+					"TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
+						"value": "[parameters('TasF_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]"
 					},
 					"Eden_BlobStorage_properties_typeProperties_folderPath": {
 						"value": "[parameters('Eden_BlobStorage_properties_typeProperties_folderPath')]"
 					},
-					"XL_SFTP_FileShare_properties_typeProperties_fileName": {
-						"value": "[parameters('XL_SFTP_FileShare_properties_typeProperties_fileName')]"
+					"XL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
+						"value": "[parameters('XL_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName')]"
 					},
-					"XL_SFTP_FileShare_properties_typeProperties_folderPath": {
-						"value": "[parameters('XL_SFTP_FileShare_properties_typeProperties_folderPath')]"
+					"XL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
+						"value": "[parameters('XL_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]"
 					},
-					"CBD_SFTP_FileShare_properties_typeProperties_fileName": {
-						"value": "[parameters('CBD_SFTP_FileShare_properties_typeProperties_fileName')]"
+					"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName": {
+						"value": "[parameters('CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_fileName')]"
 					},
-					"CBD_SFTP_FileShare_properties_typeProperties_folderPath": {
-						"value": "[parameters('CBD_SFTP_FileShare_properties_typeProperties_folderPath')]"
+					"CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath": {
+						"value": "[parameters('CBD_SFTP_FileShare_GetEachFile_properties_typeProperties_folderPath')]"
+					},
+					"TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+						"value": "[parameters('TasF_SFTP_FileShare_GetList_properties_typeProperties_folderPath')]"
 					}
 				}
 			},
