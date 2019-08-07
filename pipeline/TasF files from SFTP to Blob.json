@@ -22,7 +22,8 @@
 							"FolderPath": {
 								"value": "@pipeline().parameters.SourceFtpFolder",
 								"type": "Expression"
-							}
+							},
+							"FileName": "\\"
 						}
 					},
 					"fieldList": [
