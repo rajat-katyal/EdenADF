@@ -1,5 +1,5 @@
 {
-	"name": "XL_SFTP",
+	"name": "XL_SFTP_FileShare",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "XL_LinkedService",

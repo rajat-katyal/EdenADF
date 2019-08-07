@@ -1,8 +1,8 @@
 {
-	"name": "TasF_SFTP_FileShare",
+	"name": "CBD_SFTP_FileShare",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "TasF_LinkedService",
+			"referenceName": "CBD_LinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

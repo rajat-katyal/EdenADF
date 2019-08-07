@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Manifest_ftp_share",
+						"referenceName": "Manifest_FTP_FileShare",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderPath": {

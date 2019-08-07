@@ -1,5 +1,5 @@
 {
-	"name": "Manifest_ftp_share",
+	"name": "Manifest_FTP_FileShare",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DM_Cellarmasters_LinkedService",
