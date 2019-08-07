@@ -1,5 +1,5 @@
 {
-	"name": "Manifests_Ftp_get_each_file",
+	"name": "Manifests_FTP_GetEachFile",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DM_Cellarmasters_LinkedService",
