@@ -1,8 +1,8 @@
 {
-	"name": "Nexday3PL_SFTP",
+	"name": "XL_SFTP",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Nexday3PL_LinkedService",
+			"referenceName": "XL_LinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

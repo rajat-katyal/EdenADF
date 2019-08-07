@@ -2,7 +2,7 @@
 	"name": "TasF_SFTP",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "TasF_SFTP",
+			"referenceName": "TasF_LinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
