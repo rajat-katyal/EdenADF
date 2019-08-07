@@ -1,5 +1,5 @@
 {
-	"name": "eden_blobstorage",
+	"name": "Eden_BlobStorage",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "edendevblobstorage",

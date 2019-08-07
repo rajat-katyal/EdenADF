@@ -1,5 +1,5 @@
 {
-	"name": "Manifests_Ftp_Cellarmasters",
+	"name": "Manifests_FTP_Cellarmasters",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DM_Cellarmasters_LinkedService",

@@ -74,7 +74,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Manifests_Ftp_Cellarmasters",
+									"referenceName": "Manifests_FTP_Cellarmasters",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
@@ -87,7 +87,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "eden_blobstorage",
+									"referenceName": "Eden_BlobStorage",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": "manifests"
@@ -116,7 +116,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Manifests_Ftp_Cellarmasters",
+									"referenceName": "Manifests_FTP_Cellarmasters",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
