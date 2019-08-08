@@ -1,0 +1,28 @@
+{
+	"name": "APD10MinutelyTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "NexDay3PL files from SFTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "/APD/Eden-DevToBlob",
+					"ContainerName": "apd-events"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2019-08-08T02:16:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
