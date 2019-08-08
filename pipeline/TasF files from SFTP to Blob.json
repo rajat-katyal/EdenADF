@@ -90,7 +90,10 @@
 									"referenceName": "Eden_BlobStorage",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "tasfreight-events"
+										"FolderPath": {
+											"value": "@pipeline().parameters.ContainerName",
+											"type": "Expression"
+										}
 									}
 								}
 							]
@@ -137,6 +140,9 @@
 			"SourceFtpFolder": {
 				"type": "string",
 				"defaultValue": "/Eden-DevToBlob"
+			},
+			"ContainerName": {
+				"type": "string"
 			}
 		},
 		"annotations": []
