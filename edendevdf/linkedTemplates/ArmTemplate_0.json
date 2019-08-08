@@ -874,7 +874,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TasF files from SFTP to Blob')]",
+			"name": "[concat(parameters('factoryName'), '/NexDay3PL files from SFTP to Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -893,7 +893,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "TasF_SFTP_FileShare_GetList",
+								"referenceName": "Nexday3PL_SFTP_FileShare_GetList",
 								"type": "DatasetReference",
 								"parameters": {
 									"FolderPath": {
@@ -951,7 +951,7 @@
 									},
 									"inputs": [
 										{
-											"referenceName": "TasF_SFTP_FileShare_GetEachFile",
+											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -967,7 +967,10 @@
 											"referenceName": "Eden_BlobStorage",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "tasfreight-events"
+												"FolderPath": {
+													"value": "@pipeline().parameters.ContainerName",
+													"type": "Expression"
+												}
 											}
 										}
 									]
@@ -993,7 +996,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "TasF_SFTP_FileShare_GetEachFile",
+											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -1012,15 +1015,17 @@
 				],
 				"parameters": {
 					"SourceFtpFolder": {
-						"type": "string",
-						"defaultValue": "/Eden-DevToBlob"
+						"type": "string"
+					},
+					"ContainerName": {
+						"type": "string"
 					}
 				},
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/TasF_SFTP_FileShare_GetList')]",
-				"[concat(variables('factoryId'), '/datasets/TasF_SFTP_FileShare_GetEachFile')]",
+				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetList')]",
+				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetEachFile')]",
 				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
 			]
 		}

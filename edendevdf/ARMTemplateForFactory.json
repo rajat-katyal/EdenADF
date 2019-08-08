@@ -114,6 +114,30 @@
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.FTPxlexpress"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/APD/Eden-DevToBlob"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "apd-events"
+		},
+		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
+		},
+		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "auspost-events"
+		},
+		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/FastWay/Eden-DevToBlob"
+		},
+		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "fastway-events"
 		}
 	},
 	"variables": {
@@ -419,6 +443,162 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Manifest_FTP_FileShare_GetList')]",
 				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_FileShare_GetEachFile')]",
+				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/NexDay3PL files from SFTP to Blob')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Ftp Metadata",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "Nexday3PL_SFTP_FileShare_GetList",
+								"type": "DatasetReference",
+								"parameters": {
+									"FolderPath": {
+										"value": "@pipeline().parameters.SourceFtpFolder",
+										"type": "Expression"
+									}
+								}
+							},
+							"fieldList": [
+								"childItems"
+							]
+						}
+					},
+					{
+						"name": "ForEach",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get Ftp Metadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Ftp Metadata').output.childitems",
+								"type": "Expression"
+							},
+							"isSequential": false,
+							"batchCount": 10,
+							"activities": [
+								{
+									"name": "Copy File",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "FileSystemSource",
+											"recursive": false
+										},
+										"sink": {
+											"type": "BlobSink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "Eden_BlobStorage",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.ContainerName",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								},
+								{
+									"name": "Delete File",
+									"type": "Delete",
+									"dependsOn": [
+										{
+											"activity": "Copy File",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										},
+										"enableLogging": false
+									}
+								}
+							]
+						}
+					}
+				],
+				"parameters": {
+					"SourceFtpFolder": {
+						"type": "string"
+					},
+					"ContainerName": {
+						"type": "string"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetList')]",
+				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetEachFile')]",
 				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
 			]
 		},
@@ -1176,463 +1356,102 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AusPost files from SFTP to Blob')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/APD10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
 					{
-						"name": "Get Ftp Metadata",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
+						"pipelineReference": {
+							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"type": "PipelineReference"
 						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Nexday3PL_SFTP_FileShare_GetList",
-								"type": "DatasetReference",
-								"parameters": {
-									"FolderPath": {
-										"value": "@pipeline().parameters.SourceFtpFolder",
-										"type": "Expression"
-									}
-								}
-							},
-							"fieldList": [
-								"childItems"
-							]
-						}
-					},
-					{
-						"name": "ForEach",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "Get Ftp Metadata",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Ftp Metadata').output.childitems",
-								"type": "Expression"
-							},
-							"isSequential": false,
-							"batchCount": 10,
-							"activities": [
-								{
-									"name": "Copy File",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "FileSystemSource",
-											"recursive": false
-										},
-										"sink": {
-											"type": "BlobSink"
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "Eden_BlobStorage",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.ContainerName",
-													"type": "Expression"
-												}
-											}
-										}
-									]
-								},
-								{
-									"name": "Delete File",
-									"type": "Delete",
-									"dependsOn": [
-										{
-											"activity": "Copy File",
-											"dependencyConditions": [
-												"Succeeded"
-											]
-										}
-									],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"dataset": {
-											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										},
-										"enableLogging": false
-									}
-								}
-							]
+						"parameters": {
+							"SourceFtpFolder": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
-				"parameters": {
-					"SourceFtpFolder": {
-						"type": "string",
-						"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
-					},
-					"ContainerName": {
-						"type": "string",
-						"defaultValue": "auspost-events"
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T02:16:00.000Z",
+						"timeZone": "UTC"
 					}
-				},
-				"annotations": []
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetList')]",
-				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetEachFile')]",
-				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/APD files from SFTP to Blob')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/AusPost10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
 					{
-						"name": "Get Ftp Metadata",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
+						"pipelineReference": {
+							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"type": "PipelineReference"
 						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Nexday3PL_SFTP_FileShare_GetList",
-								"type": "DatasetReference",
-								"parameters": {
-									"FolderPath": {
-										"value": "@pipeline().parameters.SourceFtpFolder",
-										"type": "Expression"
-									}
-								}
-							},
-							"fieldList": [
-								"childItems"
-							]
-						}
-					},
-					{
-						"name": "ForEach",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "Get Ftp Metadata",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Ftp Metadata').output.childitems",
-								"type": "Expression"
-							},
-							"isSequential": false,
-							"batchCount": 10,
-							"activities": [
-								{
-									"name": "Copy File",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "FileSystemSource",
-											"recursive": false
-										},
-										"sink": {
-											"type": "BlobSink"
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "Eden_BlobStorage",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": "apd-events"
-											}
-										}
-									]
-								},
-								{
-									"name": "Delete File",
-									"type": "Delete",
-									"dependsOn": [
-										{
-											"activity": "Copy File",
-											"dependencyConditions": [
-												"Succeeded"
-											]
-										}
-									],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"dataset": {
-											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										},
-										"enableLogging": false
-									}
-								}
-							]
+						"parameters": {
+							"SourceFtpFolder": "[parameters('AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
-				"parameters": {
-					"SourceFtpFolder": {
-						"type": "string",
-						"defaultValue": "/APD/Eden-DevToBlob"
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T02:14:00.000Z",
+						"timeZone": "UTC"
 					}
-				},
-				"annotations": []
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetList')]",
-				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetEachFile')]",
-				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Fastway files from SFTP to Blob')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/Fastway10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
 					{
-						"name": "Get Ftp Metadata",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
+						"pipelineReference": {
+							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"type": "PipelineReference"
 						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Nexday3PL_SFTP_FileShare_GetList",
-								"type": "DatasetReference",
-								"parameters": {
-									"FolderPath": {
-										"value": "@pipeline().parameters.SourceFtpFolder",
-										"type": "Expression"
-									}
-								}
-							},
-							"fieldList": [
-								"childItems"
-							]
-						}
-					},
-					{
-						"name": "ForEach",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "Get Ftp Metadata",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Ftp Metadata').output.childitems",
-								"type": "Expression"
-							},
-							"isSequential": false,
-							"batchCount": 10,
-							"activities": [
-								{
-									"name": "Copy File",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "FileSystemSource",
-											"recursive": false
-										},
-										"sink": {
-											"type": "BlobSink"
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "Eden_BlobStorage",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": "fastway-events"
-											}
-										}
-									]
-								},
-								{
-									"name": "Delete File",
-									"type": "Delete",
-									"dependsOn": [
-										{
-											"activity": "Copy File",
-											"dependencyConditions": [
-												"Succeeded"
-											]
-										}
-									],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"dataset": {
-											"referenceName": "Nexday3PL_SFTP_FileShare_GetEachFile",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										},
-										"enableLogging": false
-									}
-								}
-							]
+						"parameters": {
+							"SourceFtpFolder": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
-				"parameters": {
-					"SourceFtpFolder": {
-						"type": "string",
-						"defaultValue": "/FastWay/Eden-DevToBlob"
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T02:15:00.000Z",
+						"timeZone": "UTC"
 					}
-				},
-				"annotations": []
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetList')]",
-				"[concat(variables('factoryId'), '/datasets/Nexday3PL_SFTP_FileShare_GetEachFile')]",
-				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		}
 	]
