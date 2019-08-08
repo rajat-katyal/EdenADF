@@ -86,12 +86,6 @@
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"value": "/APD/Eden-DevToBlob"
-		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"value": "apd-events"
-		},
 		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"value": "/AusPost-EDG/Eden-DevToBlob"
 		},
@@ -112,6 +106,12 @@
 		},
 		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"value": "\\Eden-DevToBlob"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"value": "\\APD\\Eden-DevToBlob"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"value": "apd-events"
 		},
 		"containerUri": {
 			"value": ""
