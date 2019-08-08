@@ -115,6 +115,14 @@
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/APD/Eden-DevToBlob"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "apd-events"
+		},
 		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
@@ -122,6 +130,14 @@
 		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "auspost-events"
+		},
+		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/FastWay/Eden-DevToBlob"
+		},
+		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "fastway-events"
 		},
 		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
@@ -134,22 +150,6 @@
 		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\Eden-DevToBlob"
-		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"type": "string",
-			"defaultValue": "/APD/Eden-DevToBlob"
-		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"type": "string",
-			"defaultValue": "apd-events"
-		},
-		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"type": "string",
-			"defaultValue": "/FastWay/Eden-DevToBlob"
-		},
-		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"type": "string",
-			"defaultValue": "fastway-events"
 		}
 	},
 	"variables": {
@@ -598,6 +598,7 @@
 						}
 					}
 				],
+				"concurrency": 5,
 				"parameters": {
 					"SourceFtpFolder": {
 						"type": "string"
@@ -1368,6 +1369,39 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/APD10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T03:35:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AusPost10MinutelyTrigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -1392,6 +1426,39 @@
 						"frequency": "Minute",
 						"interval": 10,
 						"startTime": "2019-08-08T02:14:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Fastway10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T03:36:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -1494,72 +1561,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/XL files from SFTP to Blob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/APD10MinutelyTrigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "NexDay3PL files from SFTP to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2019-08-08T03:35:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Fastway10MinutelyTrigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "NexDay3PL files from SFTP to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2019-08-08T03:36:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		}
 	]
