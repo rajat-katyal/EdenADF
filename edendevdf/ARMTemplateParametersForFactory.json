@@ -86,23 +86,11 @@
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"value": "/APD/Eden-DevToBlob"
-		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"value": "apd-events"
-		},
 		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"value": "/AusPost-EDG/Eden-DevToBlob"
 		},
 		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"value": "auspost-events"
-		},
-		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"value": "/FastWay/Eden-DevToBlob"
-		},
-		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"value": "fastway-events"
 		},
 		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
 			"value": "\\DanMurphysTest\\Eden-DevToBlob"
@@ -112,6 +100,18 @@
 		},
 		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"value": "\\Eden-DevToBlob"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"value": "/APD/Eden-DevToBlob"
+		},
+		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"value": "apd-events"
+		},
+		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"value": "/FastWay/Eden-DevToBlob"
+		},
+		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"value": "fastway-events"
 		}
 	}
 }
