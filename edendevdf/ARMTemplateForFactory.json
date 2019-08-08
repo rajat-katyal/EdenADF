@@ -138,6 +138,18 @@
 		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "fastway-events"
+		},
+		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "\\DanMurphysTest\\Eden-DevToBlob"
+		},
+		"TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "\\Eden-DevToBlob"
+		},
+		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "\\Eden-DevToBlob"
 		}
 	},
 	"variables": {
@@ -1452,6 +1464,102 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Manifest10MinuteyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Manifest files from FTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T02:24:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Manifest files from FTP to Blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TasF10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "TasF files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T02:22:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/TasF files from SFTP to Blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/XL10MinutelyTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "XL files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-08T02:24:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/XL files from SFTP to Blob')]"
 			]
 		}
 	]

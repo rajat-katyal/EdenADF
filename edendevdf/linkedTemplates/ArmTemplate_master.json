@@ -139,6 +139,18 @@
 			"type": "string",
 			"defaultValue": "fastway-events"
 		},
+		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "\\DanMurphysTest\\Eden-DevToBlob"
+		},
+		"TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "\\Eden-DevToBlob"
+		},
+		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "\\Eden-DevToBlob"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -282,6 +294,15 @@
 					},
 					"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 						"value": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+					},
+					"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]"
+					},
+					"TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					},
+					"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]"
 					}
 				}
 			},

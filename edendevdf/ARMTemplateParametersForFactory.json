@@ -103,6 +103,15 @@
 		},
 		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"value": "fastway-events"
+		},
+		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+			"value": "\\DanMurphysTest\\Eden-DevToBlob"
+		},
+		"TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"value": "\\Eden-DevToBlob"
+		},
+		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"value": "\\Eden-DevToBlob"
 		}
 	}
 }
