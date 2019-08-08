@@ -10,7 +10,8 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"SourceFtpFolder": "\\Eden-DevToBlob"
+					"SourceFtpFolder": "\\Eden-DevToBlob",
+					"ContainerName": "xl-events"
 				}
 			}
 		],

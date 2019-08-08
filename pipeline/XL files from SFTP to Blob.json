@@ -90,7 +90,10 @@
 									"referenceName": "Eden_BlobStorage",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "xl-events"
+										"FolderPath": {
+											"value": "@pipeline().parameters.ContainerName",
+											"type": "Expression"
+										}
 									}
 								}
 							]
@@ -135,8 +138,10 @@
 		],
 		"parameters": {
 			"SourceFtpFolder": {
-				"type": "string",
-				"defaultValue": "/Eden-DevToBlob"
+				"type": "string"
+			},
+			"ContainerName": {
+				"type": "string"
 			}
 		},
 		"annotations": []
