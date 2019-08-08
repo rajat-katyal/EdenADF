@@ -1,0 +1,27 @@
+{
+	"name": "TasF10MinutelyTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "TasF files from SFTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "\\Eden-DevToBlob"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2019-08-08T02:22:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
