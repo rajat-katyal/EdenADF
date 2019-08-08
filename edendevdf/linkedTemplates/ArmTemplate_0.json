@@ -665,7 +665,10 @@
 											"referenceName": "Eden_BlobStorage",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "cbd-events"
+												"FolderPath": {
+													"value": "@pipeline().parameters.ContainerName",
+													"type": "Expression"
+												}
 											}
 										}
 									]
@@ -712,6 +715,9 @@
 					"SourceFtpFolder": {
 						"type": "string",
 						"defaultValue": "/Eden-DevToBlob"
+					},
+					"ContainerName": {
+						"type": "string"
 					}
 				},
 				"annotations": []
@@ -816,7 +822,10 @@
 											"referenceName": "Eden_BlobStorage",
 											"type": "DatasetReference",
 											"parameters": {
-												"FolderPath": "manifests"
+												"FolderPath": {
+													"value": "@pipeline().parameters.ContainerName",
+													"type": "Expression"
+												}
 											}
 										}
 									]
@@ -861,8 +870,10 @@
 				],
 				"parameters": {
 					"SourceFtpFolder": {
-						"type": "string",
-						"defaultValue": "/DanMurphysTest/EdenDev"
+						"type": "string"
+					},
+					"ContainerName": {
+						"type": "string"
 					}
 				},
 				"annotations": []
