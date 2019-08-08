@@ -90,7 +90,10 @@
 									"referenceName": "Eden_BlobStorage",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": "manifests"
+										"FolderPath": {
+											"value": "@pipeline().parameters.ContainerName",
+											"type": "Expression"
+										}
 									}
 								}
 							]
@@ -135,8 +138,10 @@
 		],
 		"parameters": {
 			"SourceFtpFolder": {
-				"type": "string",
-				"defaultValue": "/DanMurphysTest/EdenDev"
+				"type": "string"
+			},
+			"ContainerName": {
+				"type": "string"
 			}
 		},
 		"annotations": []
