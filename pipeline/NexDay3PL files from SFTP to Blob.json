@@ -136,6 +136,7 @@
 				}
 			}
 		],
+		"concurrency": 5,
 		"parameters": {
 			"SourceFtpFolder": {
 				"type": "string"
