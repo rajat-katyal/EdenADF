@@ -1,0 +1,27 @@
+{
+	"name": "Manifest10MinuteyTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Manifest files from FTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "\\DanMurphysTest\\Eden-DevToBlob"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2019-08-08T02:24:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
