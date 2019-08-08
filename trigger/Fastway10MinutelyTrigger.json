@@ -2,7 +2,7 @@
 	"name": "Fastway10MinutelyTrigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -19,7 +19,7 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 3,
+				"interval": 10,
 				"startTime": "2019-08-08T03:36:00.000Z",
 				"timeZone": "UTC"
 			}
