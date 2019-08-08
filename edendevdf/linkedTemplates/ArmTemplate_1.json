@@ -365,7 +365,7 @@
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
-						"interval": 10,
+						"interval": 3,
 						"startTime": "2019-08-08T03:35:00.000Z",
 						"timeZone": "UTC"
 					}
@@ -396,7 +396,7 @@
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
-						"interval": 10,
+						"interval": 3,
 						"startTime": "2019-08-08T02:14:00.000Z",
 						"timeZone": "UTC"
 					}
@@ -427,7 +427,7 @@
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
-						"interval": 10,
+						"interval": 3,
 						"startTime": "2019-08-08T03:36:00.000Z",
 						"timeZone": "UTC"
 					}
