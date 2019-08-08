@@ -1,0 +1,27 @@
+{
+	"name": "XL10MinutelyTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "XL files from SFTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "\\Eden-DevToBlob"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2019-08-08T02:24:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
