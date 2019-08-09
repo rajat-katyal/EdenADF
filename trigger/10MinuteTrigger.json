@@ -33,6 +33,16 @@
 					"SourceFtpFolder": "\\\\Eden-DevToBlob",
 					"ContainerName": "tasfreight-events"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "XL files from SFTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "\\\\Eden-DevToBlob",
+					"ContainerName": "xl-events"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
