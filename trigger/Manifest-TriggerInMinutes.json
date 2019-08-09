@@ -1,5 +1,5 @@
 {
-	"name": "Manifest10MinuteyTrigger",
+	"name": "Manifest-TriggerInMinutes",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
