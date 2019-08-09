@@ -13,6 +13,16 @@
 					"SourceFtpFolder": "\\APD\\Eden-DevToBlob",
 					"ContainerName": "apd-events"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "Ftp or Sftp to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "/APD/Eden-DevToBlob",
+					"ContainerName": "apd-events"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
