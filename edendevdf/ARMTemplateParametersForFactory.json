@@ -125,6 +125,12 @@
 		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"value": "apd-events"
 		},
+		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+			"value": "/APD/Eden-DevToBlob"
+		},
+		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
+			"value": "apd-events"
+		},
 		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"value": "/AusPost-EDG/Eden-DevToBlob"
 		},
@@ -141,6 +147,12 @@
 			"value": "\\DanMurphysTest\\Eden-DevToBlob"
 		},
 		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
+			"value": "manifests"
+		},
+		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+			"value": "/DanMurphysTest/Eden-DevToBlob"
+		},
+		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "manifests"
 		},
 		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
