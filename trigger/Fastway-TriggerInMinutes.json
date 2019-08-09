@@ -3,18 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "NexDay3PL files from SFTP to Blob",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceFtpFolder": "/FastWay/Eden-DevToBlob",
-					"ContainerName": "fastway-events"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
