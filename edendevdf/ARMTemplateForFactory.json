@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CBD_LinkedService'"
 		},
+		"Common_LinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Common_LinkedService'"
+		},
 		"DM_Cellarmasters_LinkedService_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'DM_Cellarmasters_LinkedService'"
@@ -40,6 +44,18 @@
 			"defaultValue": "@dataset().FolderPath"
 		},
 		"CBD_SFTP_FileShare_GetList_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"Common_FileShare_GetEachFIle_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().FileName"
+		},
+		"Common_FileShare_GetEachFIle_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@dataset().FolderPath"
+		},
+		"Common_FileShare_GetList_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
@@ -95,71 +111,99 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
+		"CBD_LinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "ftp.cellarmasters.com.au"
+		},
 		"CBD_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
+		},
+		"Common_LinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "ftp.cellarmasters.com.au"
+		},
+		"Common_LinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "ftp.danmurphys"
+		},
+		"DM_Cellarmasters_LinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "ftp.cellarmasters.com.au"
 		},
 		"DM_Cellarmasters_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "ftp.danmurphys"
 		},
+		"Nexday3PL_LinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "ftp.cellarmasters.com.au"
+		},
 		"Nexday3PL_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.Nexday3PL"
+		},
+		"TasF_LinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "ftp.cellarmasters.com.au"
 		},
 		"TasF_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.TasFreight"
 		},
+		"XL_LinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "ftp.cellarmasters.com.au"
+		},
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\APD\\Eden-DevToBlob"
 		},
-		"APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "apd-events"
 		},
-		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
 		},
-		"AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "auspost-events"
 		},
-		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/FastWay/Eden-DevToBlob"
 		},
-		"Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "fastway-events"
 		},
-		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\DanMurphysTest\\Eden-DevToBlob"
 		},
-		"Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
+		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "manifests"
 		},
-		"TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\Eden-DevToBlob"
 		},
-		"TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
+		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "tasfreight-events"
 		},
-		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\Eden-DevToBlob"
 		},
-		"XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName": {
+		"XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "xl-events"
 		}
@@ -1013,6 +1057,67 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Common_FileShare_GetEachFIle')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Common_LinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"fileName": {
+						"value": "[parameters('Common_FileShare_GetEachFIle_properties_typeProperties_fileName')]",
+						"type": "Expression"
+					},
+					"folderPath": {
+						"value": "[parameters('Common_FileShare_GetEachFIle_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Common_LinkedService')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Common_FileShare_GetList')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Common_LinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderPath": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "FileShare",
+				"typeProperties": {
+					"folderPath": {
+						"value": "[parameters('Common_FileShare_GetList_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Common_LinkedService')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Eden_BlobStorage')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1291,7 +1396,7 @@
 				"annotations": [],
 				"type": "Sftp",
 				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
+					"host": "[parameters('CBD_LinkedService_properties_typeProperties_host')]",
 					"port": 22,
 					"skipHostKeyValidation": true,
 					"authenticationType": "Basic",
@@ -1305,6 +1410,28 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Common_LinkedService')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FtpServer",
+				"typeProperties": {
+					"host": "[parameters('Common_LinkedService_properties_typeProperties_host')]",
+					"port": 21,
+					"enableSsl": false,
+					"enableServerCertificateValidation": false,
+					"authenticationType": "Basic",
+					"userName": "[parameters('Common_LinkedService_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Common_LinkedService_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DM_Cellarmasters_LinkedService')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -1312,7 +1439,7 @@
 				"annotations": [],
 				"type": "FtpServer",
 				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
+					"host": "[parameters('DM_Cellarmasters_LinkedService_properties_typeProperties_host')]",
 					"port": 21,
 					"enableSsl": false,
 					"enableServerCertificateValidation": false,
@@ -1334,7 +1461,7 @@
 				"annotations": [],
 				"type": "Sftp",
 				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
+					"host": "[parameters('Nexday3PL_LinkedService_properties_typeProperties_host')]",
 					"port": 22,
 					"skipHostKeyValidation": true,
 					"authenticationType": "Basic",
@@ -1355,7 +1482,7 @@
 				"annotations": [],
 				"type": "Sftp",
 				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
+					"host": "[parameters('TasF_LinkedService_properties_typeProperties_host')]",
 					"port": 22,
 					"skipHostKeyValidation": true,
 					"authenticationType": "Basic",
@@ -1376,7 +1503,7 @@
 				"annotations": [],
 				"type": "Sftp",
 				"typeProperties": {
-					"host": "ftp.cellarmasters.com.au",
+					"host": "[parameters('XL_LinkedService_properties_typeProperties_host')]",
 					"port": 22,
 					"skipHostKeyValidation": true,
 					"authenticationType": "Basic",
@@ -1403,7 +1530,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/APD10MinutelyTrigger')]",
+			"name": "[concat(parameters('factoryName'), '/APD-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1416,8 +1543,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('APD10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1436,7 +1563,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AusPost10MinutelyTrigger')]",
+			"name": "[concat(parameters('factoryName'), '/AusPost-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1449,8 +1576,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('AusPost10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1469,7 +1596,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Fastway10MinutelyTrigger')]",
+			"name": "[concat(parameters('factoryName'), '/Fastway-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1482,8 +1609,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Fastway10MinutelyTrigger_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1502,7 +1629,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifest10MinuteyTrigger')]",
+			"name": "[concat(parameters('factoryName'), '/Manifest-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1515,8 +1642,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Manifest10MinuteyTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1535,7 +1662,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TasF10MinutelyTrigger')]",
+			"name": "[concat(parameters('factoryName'), '/TasF-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1548,8 +1675,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('TasF10MinutelyTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1568,7 +1695,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/XL10MinutelyTrigger')]",
+			"name": "[concat(parameters('factoryName'), '/XL-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1581,8 +1708,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('XL10MinutelyTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1598,6 +1725,163 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/XL files from SFTP to Blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Ftp or Sftp to Blob')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Ftp Metadata",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "Common_FileShare_GetList",
+								"type": "DatasetReference",
+								"parameters": {
+									"FolderPath": {
+										"value": "@pipeline().parameters.SourceFtpFolder",
+										"type": "Expression"
+									}
+								}
+							},
+							"fieldList": [
+								"childItems"
+							]
+						}
+					},
+					{
+						"name": "ForEach",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get Ftp Metadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Ftp Metadata').output.childitems",
+								"type": "Expression"
+							},
+							"isSequential": false,
+							"batchCount": 10,
+							"activities": [
+								{
+									"name": "Copy File",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "FileSystemSource",
+											"recursive": false
+										},
+										"sink": {
+											"type": "BlobSink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "Common_FileShare_GetEachFIle",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "Eden_BlobStorage",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.ContainerName",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								},
+								{
+									"name": "Delete File",
+									"type": "Delete",
+									"dependsOn": [
+										{
+											"activity": "Copy File",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "Manifests_FTP_FileShare_GetEachFile",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderPath": {
+													"value": "@pipeline().parameters.SourceFtpFolder",
+													"type": "Expression"
+												},
+												"FileName": "@item().name"
+											}
+										},
+										"enableLogging": false
+									}
+								}
+							]
+						}
+					}
+				],
+				"parameters": {
+					"SourceFtpFolder": {
+						"type": "string"
+					},
+					"ContainerName": {
+						"type": "string"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Common_FileShare_GetList')]",
+				"[concat(variables('factoryId'), '/datasets/Common_FileShare_GetEachFIle')]",
+				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]",
+				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_FileShare_GetEachFile')]"
 			]
 		}
 	]
