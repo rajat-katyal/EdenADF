@@ -23,6 +23,16 @@
 					"SourceFtpFolder": "/DanMurphys/dropoff",
 					"ContainerName": "manifests"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "TasF files from SFTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "\\\\Eden-DevToBlob",
+					"ContainerName": "tasfreight-events"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
