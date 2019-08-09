@@ -1888,7 +1888,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "Manifests_FTP_FileShare_GetEachFile",
+											"referenceName": "Common_FileShare_GetEachFIle",
 											"type": "DatasetReference",
 											"parameters": {
 												"FolderPath": {
@@ -1918,8 +1918,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Common_FileShare_GetList')]",
 				"[concat(variables('factoryId'), '/datasets/Common_FileShare_GetEachFIle')]",
-				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]",
-				"[concat(variables('factoryId'), '/datasets/Manifests_FTP_FileShare_GetEachFile')]"
+				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
 			]
 		}
 	]
