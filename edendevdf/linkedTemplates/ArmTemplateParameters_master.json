@@ -8,9 +8,6 @@
 		"CBD_LinkedService_password": {
 			"value": ""
 		},
-		"Common_LinkedService_password": {
-			"value": ""
-		},
 		"DM_Cellarmasters_LinkedService_password": {
 			"value": ""
 		},
@@ -79,12 +76,6 @@
 		},
 		"CBD_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
-		},
-		"Common_LinkedService_properties_typeProperties_host": {
-			"value": "ftp.cellarmasters.com.au"
-		},
-		"Common_LinkedService_properties_typeProperties_userName": {
-			"value": "ftp.danmurphys"
 		},
 		"DM_Cellarmasters_LinkedService_properties_typeProperties_host": {
 			"value": "ftp.cellarmasters.com.au"

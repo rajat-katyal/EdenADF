@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CBD_LinkedService'"
 		},
-		"Common_LinkedService_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Common_LinkedService'"
-		},
 		"DM_Cellarmasters_LinkedService_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'DM_Cellarmasters_LinkedService'"
@@ -106,14 +102,6 @@
 		"CBD_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
-		},
-		"Common_LinkedService_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "ftp.cellarmasters.com.au"
-		},
-		"Common_LinkedService_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "ftp.danmurphys"
 		},
 		"DM_Cellarmasters_LinkedService_properties_typeProperties_host": {
 			"type": "string",
@@ -1339,28 +1327,6 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('CBD_LinkedService_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Common_LinkedService')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "FtpServer",
-				"typeProperties": {
-					"host": "[parameters('Common_LinkedService_properties_typeProperties_host')]",
-					"port": 21,
-					"enableSsl": false,
-					"enableServerCertificateValidation": false,
-					"authenticationType": "Basic",
-					"userName": "[parameters('Common_LinkedService_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('Common_LinkedService_password')]"
 					}
 				}
 			},

@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'CBD_LinkedService'"
 		},
-		"Common_LinkedService_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Common_LinkedService'"
-		},
 		"DM_Cellarmasters_LinkedService_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'DM_Cellarmasters_LinkedService'"
@@ -106,14 +102,6 @@
 		"CBD_LinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.CBD_Couriers_nepalb"
-		},
-		"Common_LinkedService_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "ftp.cellarmasters.com.au"
-		},
-		"Common_LinkedService_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "ftp.danmurphys"
 		},
 		"DM_Cellarmasters_LinkedService_properties_typeProperties_host": {
 			"type": "string",
@@ -233,9 +221,6 @@
 					"CBD_LinkedService_password": {
 						"value": "[parameters('CBD_LinkedService_password')]"
 					},
-					"Common_LinkedService_password": {
-						"value": "[parameters('Common_LinkedService_password')]"
-					},
 					"DM_Cellarmasters_LinkedService_password": {
 						"value": "[parameters('DM_Cellarmasters_LinkedService_password')]"
 					},
@@ -256,12 +241,6 @@
 					},
 					"CBD_LinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('CBD_LinkedService_properties_typeProperties_userName')]"
-					},
-					"Common_LinkedService_properties_typeProperties_host": {
-						"value": "[parameters('Common_LinkedService_properties_typeProperties_host')]"
-					},
-					"Common_LinkedService_properties_typeProperties_userName": {
-						"value": "[parameters('Common_LinkedService_properties_typeProperties_userName')]"
 					},
 					"DM_Cellarmasters_LinkedService_properties_typeProperties_host": {
 						"value": "[parameters('DM_Cellarmasters_LinkedService_properties_typeProperties_host')]"
