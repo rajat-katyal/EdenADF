@@ -119,7 +119,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Manifests_FTP_FileShare_GetEachFile",
+									"referenceName": "Common_FileShare_GetEachFIle",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
