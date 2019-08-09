@@ -1,5 +1,5 @@
 {
-	"name": "APD10MinutelyTrigger",
+	"name": "APD-TriggerInMinutes",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
