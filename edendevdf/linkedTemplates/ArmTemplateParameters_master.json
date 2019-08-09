@@ -119,35 +119,23 @@
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"value": "\\APD\\Eden-DevToBlob"
-		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"value": "apd-events"
-		},
 		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"value": "/APD/Eden-DevToBlob"
 		},
 		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "apd-events"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"value": "/AusPost-EDG/Eden-DevToBlob"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "auspost-events"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"value": "/FastWay/Eden-DevToBlob"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "fastway-events"
-		},
-		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
-			"value": "\\DanMurphysTest\\Eden-DevToBlob"
-		},
-		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
-			"value": "manifests"
 		},
 		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"value": "/DanMurphysTest/Eden-DevToBlob"
@@ -155,16 +143,16 @@
 		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "manifests"
 		},
-		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"value": "\\Eden-DevToBlob"
+		"TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+			"value": "/Eden-DevToBlob"
 		},
-		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
+		"TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "tasfreight-events"
 		},
-		"XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"value": "\\Eden-DevToBlob"
+		"XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+			"value": "/Eden-DevToBlob"
 		},
-		"XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_ContainerName": {
+		"XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"value": "xl-events"
 		},
 		"containerUri": {

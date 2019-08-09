@@ -159,14 +159,6 @@
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-			"type": "string",
-			"defaultValue": "\\APD\\Eden-DevToBlob"
-		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-			"type": "string",
-			"defaultValue": "apd-events"
-		},
 		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/APD/Eden-DevToBlob"
@@ -175,29 +167,21 @@
 			"type": "string",
 			"defaultValue": "apd-events"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "auspost-events"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/FastWay/Eden-DevToBlob"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "fastway-events"
-		},
-		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
-			"type": "string",
-			"defaultValue": "\\DanMurphysTest\\Eden-DevToBlob"
-		},
-		"Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
-			"type": "string",
-			"defaultValue": "manifests"
 		},
 		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
@@ -207,19 +191,19 @@
 			"type": "string",
 			"defaultValue": "manifests"
 		},
-		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
-			"defaultValue": "\\Eden-DevToBlob"
+			"defaultValue": "/Eden-DevToBlob"
 		},
-		"TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
+		"TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "tasfreight-events"
 		},
-		"XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
-			"defaultValue": "\\Eden-DevToBlob"
+			"defaultValue": "/Eden-DevToBlob"
 		},
-		"XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_ContainerName": {
+		"XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "xl-events"
 		}
@@ -1555,16 +1539,6 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "NexDay3PL files from SFTP to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
-						}
-					},
-					{
-						"pipelineReference": {
 							"referenceName": "Ftp or Sftp to Blob",
 							"type": "PipelineReference"
 						},
@@ -1585,7 +1559,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]",
 				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
 			]
 		},
@@ -1599,12 +1572,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"referenceName": "Ftp or Sftp to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1619,7 +1592,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
+				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
 			]
 		},
 		{
@@ -1632,12 +1605,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "NexDay3PL files from SFTP to Blob",
+							"referenceName": "Ftp or Sftp to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1652,7 +1625,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
+				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
 			]
 		},
 		{
@@ -1663,16 +1636,6 @@
 				"annotations": [],
 				"runtimeState": "Started",
 				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "Manifest files from FTP to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Manifest-TriggerInMinutes_properties_Manifest files from FTP to Blob_parameters_ContainerName')]"
-						}
-					},
 					{
 						"pipelineReference": {
 							"referenceName": "Ftp or Sftp to Blob",
@@ -1695,7 +1658,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Manifest files from FTP to Blob')]",
 				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
 			]
 		},
@@ -1709,12 +1671,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "TasF files from SFTP to Blob",
+							"referenceName": "Ftp or Sftp to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('TasF-TriggerInMinutes_properties_TasF files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1729,7 +1691,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/TasF files from SFTP to Blob')]"
+				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
 			]
 		},
 		{
@@ -1742,12 +1704,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "XL files from SFTP to Blob",
+							"referenceName": "Ftp or Sftp to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('XL-TriggerInMinutes_properties_XL files from SFTP to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1762,7 +1724,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/XL files from SFTP to Blob')]"
+				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
 			]
 		},
 		{
