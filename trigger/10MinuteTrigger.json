@@ -13,6 +13,16 @@
 					"SourceFtpFolder": "/Eden-DevToBlob",
 					"ContainerName": "cbd-events"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "Manifest files from FTP to Blob",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SourceFtpFolder": "/DanMurphys/dropoff",
+					"ContainerName": "manifests"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
