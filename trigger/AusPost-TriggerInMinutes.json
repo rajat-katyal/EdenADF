@@ -1,5 +1,5 @@
 {
-	"name": "AusPost10MinutelyTrigger",
+	"name": "AusPost-TriggerInMinutes",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
