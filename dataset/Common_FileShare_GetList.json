@@ -1,5 +1,5 @@
 {
-	"name": "Common_FileShare",
+	"name": "Common_FileShare_GetList",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Common_LinkedService",
