@@ -6,16 +6,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "Manifest files from FTP to Blob",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceFtpFolder": "\\DanMurphysTest\\Eden-DevToBlob",
-					"ContainerName": "manifests"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "Ftp or Sftp to Blob",
 					"type": "PipelineReference"
 				},
