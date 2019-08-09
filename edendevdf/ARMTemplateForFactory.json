@@ -47,18 +47,6 @@
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
 		},
-		"Common_FileShare_GetEachFIle_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "@dataset().FileName"
-		},
-		"Common_FileShare_GetEachFIle_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "@dataset().FolderPath"
-		},
-		"Common_FileShare_GetList_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "@dataset().FolderPath"
-		},
 		"Eden_BlobStorage_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "@dataset().FolderPath"
@@ -159,53 +147,61 @@
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
-			"defaultValue": "/APD/Eden-DevToBlob"
+			"defaultValue": "/Eden-DevToBlob"
 		},
-		"APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
-			"defaultValue": "apd-events"
+			"defaultValue": "cbd-events"
 		},
-		"AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
-			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
+			"defaultValue": "/DanMurphys/dropoff"
 		},
-		"AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
-			"type": "string",
-			"defaultValue": "auspost-events"
-		},
-		"Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
-			"type": "string",
-			"defaultValue": "/FastWay/Eden-DevToBlob"
-		},
-		"Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
-			"type": "string",
-			"defaultValue": "fastway-events"
-		},
-		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
-			"type": "string",
-			"defaultValue": "/DanMurphysTest/Eden-DevToBlob"
-		},
-		"Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "manifests"
 		},
-		"TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
-			"defaultValue": "/Eden-DevToBlob"
+			"defaultValue": "\\\\Eden-DevToBlob"
 		},
-		"TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "tasfreight-events"
 		},
-		"XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
 			"type": "string",
-			"defaultValue": "/Eden-DevToBlob"
+			"defaultValue": "\\\\Eden-DevToBlob"
 		},
-		"XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "xl-events"
+		},
+		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/APD/Eden-DevToBlob"
+		},
+		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "apd-events"
+		},
+		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
+		},
+		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "auspost-events"
+		},
+		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+			"type": "string",
+			"defaultValue": "/fastway/Eden-DevToBlob"
+		},
+		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+			"type": "string",
+			"defaultValue": "fastway-events"
 		}
 	},
 	"variables": {
@@ -1057,67 +1053,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Common_FileShare_GetEachFIle')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Common_LinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"FolderPath": {
-						"type": "string"
-					},
-					"FileName": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "FileShare",
-				"typeProperties": {
-					"fileName": {
-						"value": "[parameters('Common_FileShare_GetEachFIle_properties_typeProperties_fileName')]",
-						"type": "Expression"
-					},
-					"folderPath": {
-						"value": "[parameters('Common_FileShare_GetEachFIle_properties_typeProperties_folderPath')]",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Common_LinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Common_FileShare_GetList')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Common_LinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"FolderPath": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "FileShare",
-				"typeProperties": {
-					"folderPath": {
-						"value": "[parameters('Common_FileShare_GetList_properties_typeProperties_folderPath')]",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Common_LinkedService')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Eden_BlobStorage')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1530,6 +1465,72 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/10MinuteTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "CBD files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_ContainerName')]"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "Manifest files from FTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName')]"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "TasF files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName')]"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "XL files from SFTP to Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "[parameters('10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 1,
+						"startTime": "2019-08-09T04:30:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/CBD files from SFTP to Blob')]",
+				"[concat(variables('factoryId'), '/pipelines/Manifest files from FTP to Blob')]",
+				"[concat(variables('factoryId'), '/pipelines/TasF files from SFTP to Blob')]",
+				"[concat(variables('factoryId'), '/pipelines/XL files from SFTP to Blob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/APD-TriggerInMinutes')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -1539,12 +1540,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Ftp or Sftp to Blob",
+							"referenceName": "NexDay3PL files from SFTP to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('APD-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1559,7 +1560,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		},
 		{
@@ -1572,12 +1573,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Ftp or Sftp to Blob",
+							"referenceName": "NexDay3PL files from SFTP to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('AusPost-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1592,7 +1593,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		},
 		{
@@ -1605,12 +1606,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Ftp or Sftp to Blob",
+							"referenceName": "NexDay3PL files from SFTP to Blob",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"SourceFtpFolder": "[parameters('Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Fastway-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
+							"SourceFtpFolder": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]",
+							"ContainerName": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
 						}
 					}
 				],
@@ -1625,262 +1626,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Manifest-TriggerInMinutes')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "Ftp or Sftp to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('Manifest-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2019-08-08T02:24:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TasF-TriggerInMinutes')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "Ftp or Sftp to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('TasF-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2019-08-08T02:22:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/XL-TriggerInMinutes')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "Ftp or Sftp to Blob",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"SourceFtpFolder": "[parameters('XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_SourceFtpFolder')]",
-							"ContainerName": "[parameters('XL-TriggerInMinutes_properties_Ftp or Sftp to Blob_parameters_ContainerName')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 10,
-						"startTime": "2019-08-08T02:24:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Ftp or Sftp to Blob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Ftp or Sftp to Blob')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Get Ftp Metadata",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Common_FileShare_GetList",
-								"type": "DatasetReference",
-								"parameters": {
-									"FolderPath": {
-										"value": "@pipeline().parameters.SourceFtpFolder",
-										"type": "Expression"
-									}
-								}
-							},
-							"fieldList": [
-								"childItems"
-							]
-						}
-					},
-					{
-						"name": "ForEach",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "Get Ftp Metadata",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Ftp Metadata').output.childitems",
-								"type": "Expression"
-							},
-							"isSequential": false,
-							"batchCount": 10,
-							"activities": [
-								{
-									"name": "Copy File",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "FileSystemSource",
-											"recursive": false
-										},
-										"sink": {
-											"type": "BlobSink"
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "Common_FileShare_GetEachFIle",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "Eden_BlobStorage",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.ContainerName",
-													"type": "Expression"
-												}
-											}
-										}
-									]
-								},
-								{
-									"name": "Delete File",
-									"type": "Delete",
-									"dependsOn": [
-										{
-											"activity": "Copy File",
-											"dependencyConditions": [
-												"Succeeded"
-											]
-										}
-									],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"dataset": {
-											"referenceName": "Common_FileShare_GetEachFIle",
-											"type": "DatasetReference",
-											"parameters": {
-												"FolderPath": {
-													"value": "@pipeline().parameters.SourceFtpFolder",
-													"type": "Expression"
-												},
-												"FileName": "@item().name"
-											}
-										},
-										"enableLogging": false
-									}
-								}
-							]
-						}
-					}
-				],
-				"parameters": {
-					"SourceFtpFolder": {
-						"type": "string"
-					},
-					"ContainerName": {
-						"type": "string"
-					}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Common_FileShare_GetList')]",
-				"[concat(variables('factoryId'), '/datasets/Common_FileShare_GetEachFIle')]",
-				"[concat(variables('factoryId'), '/datasets/Eden_BlobStorage')]"
+				"[concat(variables('factoryId'), '/pipelines/NexDay3PL files from SFTP to Blob')]"
 			]
 		}
 	]
