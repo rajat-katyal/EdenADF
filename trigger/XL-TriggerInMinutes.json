@@ -6,16 +6,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "XL files from SFTP to Blob",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceFtpFolder": "\\Eden-DevToBlob",
-					"ContainerName": "xl-events"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "Ftp or Sftp to Blob",
 					"type": "PipelineReference"
 				},
