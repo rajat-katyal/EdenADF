@@ -3,18 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "Ftp or Sftp to Blob",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceFtpFolder": "/APD/Eden-DevToBlob",
-					"ContainerName": "apd-events"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {

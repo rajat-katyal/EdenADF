@@ -3,18 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "Ftp or Sftp to Blob",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceFtpFolder": "/DanMurphysTest/Eden-DevToBlob",
-					"ContainerName": "manifests"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
