@@ -1,0 +1,150 @@
+{
+	"name": "Ftp or Sftp to Blob",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Ftp Metadata",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "Common_FileShare_GetList",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderPath": {
+								"value": "@pipeline().parameters.SourceFtpFolder",
+								"type": "Expression"
+							}
+						}
+					},
+					"fieldList": [
+						"childItems"
+					]
+				}
+			},
+			{
+				"name": "ForEach",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get Ftp Metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Ftp Metadata').output.childitems",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"batchCount": 10,
+					"activities": [
+						{
+							"name": "Copy File",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "FileSystemSource",
+									"recursive": false
+								},
+								"sink": {
+									"type": "BlobSink"
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "Common_FileShare_GetEachFIle",
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderPath": {
+											"value": "@pipeline().parameters.SourceFtpFolder",
+											"type": "Expression"
+										},
+										"FileName": "@item().name"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "Eden_BlobStorage",
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderPath": {
+											"value": "@pipeline().parameters.ContainerName",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						},
+						{
+							"name": "Delete File",
+							"type": "Delete",
+							"dependsOn": [
+								{
+									"activity": "Copy File",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "Manifests_FTP_FileShare_GetEachFile",
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderPath": {
+											"value": "@pipeline().parameters.SourceFtpFolder",
+											"type": "Expression"
+										},
+										"FileName": "@item().name"
+									}
+								},
+								"enableLogging": false
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"SourceFtpFolder": {
+				"type": "string"
+			},
+			"ContainerName": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
