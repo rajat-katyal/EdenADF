@@ -1,0 +1,17 @@
+{
+	"name": "10MinuteTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2019-08-09T04:30:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
