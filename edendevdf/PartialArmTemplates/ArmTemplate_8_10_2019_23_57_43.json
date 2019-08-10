@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "edendevdf"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/10MinuteTrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "CBD_files_from_SFTP_to_Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "/Eden-DevToBlob",
+							"ContainerName": "cbd-events"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "Manifest_files_from_FTP_to_Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "/DanMurphys/dropoff",
+							"ContainerName": "manifests"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "TasF_files_from_SFTP_to_Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "\\\\Eden-DevToBlob",
+							"ContainerName": "tasfreight-events"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "XL_files_from_SFTP_to_Blob",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"SourceFtpFolder": "\\\\Eden-DevToBlob",
+							"ContainerName": "xl-events"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2019-08-09T04:30:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
