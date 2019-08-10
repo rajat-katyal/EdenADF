@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "CBD files from SFTP to Blob",
+					"referenceName": "CBD_files_from_SFTP_to_Blob",
 					"type": "PipelineReference"
 				},
 				"parameters": {
@@ -16,7 +16,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "Manifest files from FTP to Blob",
+					"referenceName": "Manifest_files_from_FTP_to_Blob",
 					"type": "PipelineReference"
 				},
 				"parameters": {
@@ -26,7 +26,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "TasF files from SFTP to Blob",
+					"referenceName": "TasF_files_from_SFTP_to_Blob",
 					"type": "PipelineReference"
 				},
 				"parameters": {
@@ -36,7 +36,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "XL files from SFTP to Blob",
+					"referenceName": "XL_files_from_SFTP_to_Blob",
 					"type": "PipelineReference"
 				},
 				"parameters": {

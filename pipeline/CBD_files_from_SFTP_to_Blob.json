@@ -1,5 +1,5 @@
 {
-	"name": "CBD files from SFTP to Blob",
+	"name": "CBD_files_from_SFTP_to_Blob",
 	"properties": {
 		"activities": [
 			{

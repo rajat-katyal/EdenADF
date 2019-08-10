@@ -1,5 +1,5 @@
 {
-	"name": "NexDay3PL files from SFTP to Blob",
+	"name": "NexDay3PL_files_from_SFTP_to_Blob",
 	"properties": {
 		"activities": [
 			{

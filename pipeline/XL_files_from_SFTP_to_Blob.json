@@ -1,5 +1,5 @@
 {
-	"name": "XL files from SFTP to Blob",
+	"name": "XL_files_from_SFTP_to_Blob",
 	"properties": {
 		"activities": [
 			{

@@ -1,5 +1,5 @@
 {
-	"name": "Manifest files from FTP to Blob",
+	"name": "Manifest_files_from_FTP_to_Blob",
 	"properties": {
 		"activities": [
 			{

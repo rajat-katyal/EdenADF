@@ -1,5 +1,5 @@
 {
-	"name": "TasF files from SFTP to Blob",
+	"name": "TasF_files_from_SFTP_to_Blob",
 	"properties": {
 		"activities": [
 			{
