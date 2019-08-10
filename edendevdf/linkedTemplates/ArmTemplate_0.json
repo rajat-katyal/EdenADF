@@ -592,7 +592,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CBD files from SFTP to Blob')]",
+			"name": "[concat(parameters('factoryName'), '/CBD_files_from_SFTP_to_Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -749,7 +749,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Manifest files from FTP to Blob')]",
+			"name": "[concat(parameters('factoryName'), '/Manifest_files_from_FTP_to_Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -905,7 +905,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/NexDay3PL files from SFTP to Blob')]",
+			"name": "[concat(parameters('factoryName'), '/NexDay3PL_files_from_SFTP_to_Blob')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {

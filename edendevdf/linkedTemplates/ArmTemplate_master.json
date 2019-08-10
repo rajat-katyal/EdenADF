@@ -135,59 +135,59 @@
 			"type": "string",
 			"defaultValue": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/Eden-DevToBlob"
 		},
-		"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "cbd-events"
 		},
-		"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/DanMurphys/dropoff"
 		},
-		"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "manifests"
 		},
-		"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\\\Eden-DevToBlob"
 		},
-		"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "tasfreight-events"
 		},
-		"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "\\\\Eden-DevToBlob"
 		},
-		"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "xl-events"
 		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/APD/Eden-DevToBlob"
 		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "apd-events"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/AusPost-EDG/Eden-DevToBlob"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "auspost-events"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"type": "string",
 			"defaultValue": "/fastway/Eden-DevToBlob"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"type": "string",
 			"defaultValue": "fastway-events"
 		},
@@ -332,47 +332,47 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					"10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_ContainerName')]"
+					"10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_ContainerName')]"
 					},
-					"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder')]"
+					"10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName')]"
+					"10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_ContainerName')]"
 					},
-					"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					"10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName')]"
+					"10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_ContainerName')]"
 					},
-					"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					"10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName')]"
+					"10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_ContainerName')]"
 					},
-					"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					"APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+					"APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName')]"
 					},
-					"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					"AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+					"AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName')]"
 					},
-					"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
-						"value": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder')]"
+					"Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
+						"value": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder')]"
 					},
-					"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
-						"value": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName')]"
+					"Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
+						"value": "[parameters('Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName')]"
 					}
 				}
 			},

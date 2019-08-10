@@ -101,46 +101,46 @@
 		"XL_LinkedService_properties_typeProperties_userName": {
 			"value": "SFTP.EDEN.UAT.FTPxlexpress"
 		},
-		"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "/Eden-DevToBlob"
 		},
-		"10MinuteTrigger_properties_CBD files from SFTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_CBD_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"value": "cbd-events"
 		},
-		"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "/DanMurphys/dropoff"
 		},
-		"10MinuteTrigger_properties_Manifest files from FTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_Manifest_files_from_FTP_to_Blob_parameters_ContainerName": {
 			"value": "manifests"
 		},
-		"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "\\\\Eden-DevToBlob"
 		},
-		"10MinuteTrigger_properties_TasF files from SFTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_TasF_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"value": "tasfreight-events"
 		},
-		"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "\\\\Eden-DevToBlob"
 		},
-		"10MinuteTrigger_properties_XL files from SFTP to Blob_parameters_ContainerName": {
+		"10MinuteTrigger_properties_XL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"value": "xl-events"
 		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "/APD/Eden-DevToBlob"
 		},
-		"APD-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"APD-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"value": "apd-events"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "/AusPost-EDG/Eden-DevToBlob"
 		},
-		"AusPost-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"AusPost-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"value": "auspost-events"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_SourceFtpFolder": {
+		"Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_SourceFtpFolder": {
 			"value": "/fastway/Eden-DevToBlob"
 		},
-		"Fastway-TriggerInMinutes_properties_NexDay3PL files from SFTP to Blob_parameters_ContainerName": {
+		"Fastway-TriggerInMinutes_properties_NexDay3PL_files_from_SFTP_to_Blob_parameters_ContainerName": {
 			"value": "fastway-events"
 		}
 	}
